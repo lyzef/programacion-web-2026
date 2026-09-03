@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="author"
-      content="Miguel Angel Bautista Ortega
-Dereck Hernández Sandoval
-Carlos Alberto Camargo Montoya"
+      content="Miguel Angel Bautista Ortega, Dereck Hernández Sandoval, Carlos Alberto Camargo Montoya"
     />
-    <meta name="description" content="Pagina de restaurante" />
+    <meta name="description" content="Página de restaurante" />
     <meta name="keywords" content="restaurante, pollo, fast food" />
   </head>
   <body>
@@ -18,77 +16,81 @@ Carlos Alberto Camargo Montoya"
       <h3>Bodrios Fast Food</h3>
       <nav>
         <ul>
-          <a href="#inicio">Inicio</a>
-          <a href="#menu">Menu</a>
-          <a href="#promociones">Promociones</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#horarios">Horarios</a>
-          <a href="menu">🛵 Pedir a domicilio</a>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#promociones">Promociones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+          <li><a href="#delivery">🛵 Pedir a domicilio</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <h1>Rápido, sabroso y sin esperas.</h1>
-      <section class="hero image">
+      <section id="inicio">
+        <h1>Rápido, sabroso y sin esperas.</h1>
         <p>
           Burgers jugosas, papas crujientes y combos que no te van a
           decepcionar.
         </p>
 
-        <a href="menu">Menu</a>'
-        <a href="promociones">🛵 Pedir ahora</a>
+        <a href="#menu">Menú</a>
+        <a href="#delivery">🛵 Pedir ahora</a>
       </section>
+
       <hr />
-      <section class="promociones">
+
+      <section id="promociones">
         <small>¡Ofertas vigentes!</small>
         <h2>Promociones</h2>
-        <section class="tarjeta">
-          <br />
+        
+        <article>
           <small>Martes y jueves</small>
-          <h3>2x1 en Burguers</h3>
+          <h3>2x1 en Burgers</h3>
           <p>Todos los martes y jueves.</p>
-          <br />
           <b>$89</b><br />
-          <strong>🛵 Pedir esta promo</strong>
-        </section>
+          <a href="#delivery">🛵 Pedir esta promo</a>
+        </article>
+
         <hr />
-        <section class="tarjeta">
-          <br />
+
+        <article>
           <small>Ahorra $69</small>
           <h3>Combo Familiar</h3>
           <p>4 burgers + 4 papas + 4 bebidas a un precio increíble.</p>
-          <br />
           <b>$399</b><br />
-          <strong>🛵 Pedir esta promo</strong>
-        </section>
+          <a href="#delivery">🛵 Pedir esta promo</a>
+        </article>
       </section>
+
       <hr />
-      <section class="favoritos">
-        <small>Lo mas pedido</small>
+
+      <section id="favoritos">
+        <small>Lo más pedido</small>
         <h2>Nuestros favoritos</h2>
-        <section class="tarjeta">
-          <br />
-          <small>⭐Popular</small>
-          <h3>Bodrios clasics</h3>
+
+        <article>
+          <small>⭐ Popular</small>
+          <h3>Bodrios classics</h3>
           <p>Carne 200g, queso americano, lechuga, tomate y salsa especial.</p>
-          <br />
           <b>$67</b><br />
-          <strong>Pedir</strong>
-        </section>
+          <a href="#delivery">Pedir</a>
+        </article>
+
         <hr />
-        <section class="tarjeta">
-          <br />
-          <small>⭐Popular</small>
+
+        <article>
+          <small>⭐ Popular</small>
           <h3>Papas Bodrios</h3>
           <p>Papas crujientes con queso fundido y jalapeños al gusto.</p>
-          <br />
           <b>$57</b><br />
-          <strong>Pedir</strong>
-        </section>
+          <a href="#delivery">Pedir</a>
+        </article>
       </section>
+
       <hr />
-      <section>
+
+      <section id="nosotros">
         <small>¿Quiénes somos?</small>
         <h2>Fast food hecho con carácter</h2>
         <p>
@@ -101,45 +103,56 @@ Carlos Alberto Camargo Montoya"
           sabroso y a un precio justo.
         </p>
 
-        <small>🥩 Carne fresca</small>
-        <small>⚡ Servicio rápido</small>
-        <small>💛 Precio justo</small>
+        <ul>
+          <li>🥩 Carne fresca</li>
+          <li>⚡ Servicio rápido</li>
+          <li>💛 Precio justo</li>
+        </ul>
       </section>
+
       <hr />
-      <section class="horarios" id="horarios">
+
+      <section id="horarios">
         <small>Horarios</small>
         <h2>Siempre listos para ti</h2>
-        <section class="tarjeta">
+
+        <article>
           <b>Lunes – Miércoles</b>
           <p>10:00 am – 10:00 pm</p>
-        </section>
-        <section class="tarjeta">
+        </article>
+
+        <article>
           <b>Jueves – Viernes</b>
           <p>10:00 am – 11:00 pm</p>
-        </section>
-        <section class="tarjeta">
+        </article>
+
+        <article>
           <b>Sábado</b>
           <p>9:00 am – 12:00 am</p>
-        </section>
-        <section class="tarjeta">
+        </article>
+
+        <article>
           <b>Domingo</b>
           <p>9:00 am – 9:00 pm</p>
-        </section>
+        </article>
       </section>
+
       <hr />
-      <section class="delivery">
+
+      <section id="delivery">
         <p>🛵</p>
         <h2>¡Lo llevamos a tu puerta!</h2>
         <p>Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30 minutos.</p>
-        <strong>📞 Llama ahora</strong>
-        <strong>💬 WhatsApp</strong>
+        <a href="tel:6122126676">📞 Llama ahora</a>
+        <a href="https://wa.me/526122126676">💬 WhatsApp</a>
         <br />
         <small>⚡ Entrega en 30 min</small>
         <small>📋 Menú completo</small>
         <small>🚫 Sin monto mínimo</small>
       </section>
     </main>
-    <footer>
+
+    <footer id="contacto">
       <section>
         <h3>Bodrios Fast Food</h3>
         <p>
@@ -147,26 +160,34 @@ Carlos Alberto Camargo Montoya"
           esperas.
         </p>
       </section>
+
       <section>
         <h4>Navegación</h4>
-        <p>Inicio</p>
-        <p>Menú</p>
-        <p>Promociones</p>
-        <p>Nosotros</p>
-        <p>Horarios</p>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#promociones">Promociones</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#horarios">Horarios</a></li>
+        </ul>
       </section>
+
       <section>
         <h4>Contacto</h4>
         <p>📞 612 212 6676</p>
         <p>📧 hola@bodrios.com.mx</p>
         <p>📍 Ciudad de México</p>
       </section>
+
       <section>
         <h4>Redes</h4>
-        <small>📘</small>
-        <small>📷</small>
-        <small>🐦</small>
+        <ul>
+          <li><a href="#">📘 Facebook</a></li>
+          <li><a href="#">📷 Instagram</a></li>
+          <li><a href="#">🐦 Twitter</a></li>
+        </ul>
       </section>
+
       <hr />
       <p>© 2026 Bodrios Fast Food. Todos los derechos reservados.</p>
     </footer>
