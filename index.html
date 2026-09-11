@@ -13,8 +13,8 @@
   </head>
   <body>
     <header>
-      <h3>Bodrios Fast Food</h3>
-      <nav>
+      <h3>🍔 Bodrios Fast Food</h3>
+      <nav aria-label="Barra de navegacion principal">
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#menu">Menú</a></li>
@@ -33,7 +33,28 @@
           Burgers jugosas, papas crujientes y combos que no te van a
           decepcionar.
         </p>
+        <img
+          src="assets/images/inicio/Imagen__Fondo-1280w.webp"
+          srcset="
+            assets/images/inicio/Imagen__Fondo-480w.webp   480w,
+            assets/images/inicio/Imagen__Fondo-768w.webp   768w,
+            assets/images/inicio/Imagen__Fondo-1024w.webp 1024w,
+            assets/images/inicio/Imagen__Fondo-1280w.webp 1280w
+          "
+          sizes="(max-width: 768px) 100vw, 768px"
+          width="1280"
+          height="801"
+          alt="Hamburguesa de fondo"
+        />
 
+        <img
+          src="assets/images/inicio/hamburguesa-circle.jpg"
+          width="281"
+          height="281"
+          loading="lazy"
+          alt="Hamburguesa llamativa enfrente de fondo de inicio"
+        />
+        <br />
         <a href="#menu">Menú</a>
         <a href="#delivery">🛵 Pedir ahora</a>
       </section>
@@ -43,8 +64,16 @@
       <section id="promociones">
         <small>¡Ofertas vigentes!</small>
         <h2>Promociones</h2>
-        
+
         <article>
+          <img
+            src="assets/images/menu/clasica-con-papas.jpg"
+            alt="combo de hamburguesa clasica con papas"
+            width="320"
+            height="200"
+            loading="lazy"
+          />
+          <br />
           <small>Martes y jueves</small>
           <h3>2x1 en Burgers</h3>
           <p>Todos los martes y jueves.</p>
@@ -55,6 +84,14 @@
         <hr />
 
         <article>
+          <img
+            src="assets/images/menu/combo-familiar.png"
+            alt="combo familiar"
+            width="320"
+            height="200"
+            loading="lazy"
+          />
+          <br />
           <small>Ahorra $69</small>
           <h3>Combo Familiar</h3>
           <p>4 burgers + 4 papas + 4 bebidas a un precio increíble.</p>
@@ -70,6 +107,14 @@
         <h2>Nuestros favoritos</h2>
 
         <article>
+          <img
+            src="assets/images/menu/clasico-con-papas-2.jpg"
+            alt="hamburguesa clasica"
+            width="320"
+            height="200"
+            loading="lazy"
+          />
+          <br />
           <small>⭐ Popular</small>
           <h3>Bodrios classics</h3>
           <p>Carne 200g, queso americano, lechuga, tomate y salsa especial.</p>
@@ -80,6 +125,14 @@
         <hr />
 
         <article>
+          <img
+            src="assets/images/menu/papas-480w.webp"
+            alt="papas clasicas"
+            width="320"
+            height="200"
+            loading="lazy"
+          />
+          <br />
           <small>⭐ Popular</small>
           <h3>Papas Bodrios</h3>
           <p>Papas crujientes con queso fundido y jalapeños al gusto.</p>
@@ -91,6 +144,32 @@
       <hr />
 
       <section id="nosotros">
+        <figure class="nosotros-mosaico">
+          <img
+            src="assets/images/inicio/hamburguesa-mosaico.png"
+            alt="Hamburguesa con papas a la francesa crujientes"
+            width="400"
+            height="300"
+            loading="lazy"
+            class="img-principal"
+          />
+
+          <div class="mosaico-columna">
+            <img
+              src="assets/images/inicio/hamburguesa-mosaico-2.png"
+              alt="Hamburguesa servida en caja"
+              width="150"
+              height="150"
+              loading="lazy"
+              class="img-secundaria"
+            />
+            <div class="quienessomos-card">
+              <b>10+</b>
+              <span>años sirviendo</span>
+            </div>
+          </div>
+        </figure>
+
         <small>¿Quiénes somos?</small>
         <h2>Fast food hecho con carácter</h2>
         <p>
@@ -142,7 +221,10 @@
       <section id="delivery">
         <p>🛵</p>
         <h2>¡Lo llevamos a tu puerta!</h2>
-        <p>Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30 minutos.</p>
+        <p>
+          Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30
+          minutos.
+        </p>
         <a href="tel:6122126676">📞 Llama ahora</a>
         <a href="https://wa.me/526122126676">💬 WhatsApp</a>
         <br />
