@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Crear cuenta - Don bodrio Restaurant</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Miguel Angel Bautista Ortega, Dereck Hernández Sandoval, Carlos Alberto Camargo Montoya"
+    />
+    <meta name="description" content="Formulario de registro de Bodrios Fast Food" />
+  </head>
+  <body>
+    <img
+      src="burger.png"
+      srcset="assets/images/inicio/burger-480w.png 480w, assets/images/inicio/burger-768w.png 768w, assets/images/inicio/burger-1024w.png 1024w, assets/images/inicio/burger-1280w.png 1280w"
+      sizes="35vw"
+      alt=""
+    />
+
+    <div>
+      <header>
+        <h3>🍔 Bodrios Fast Food</h3>
+        <nav aria-label="Barra de navegacion principal">
+          <ul>
+            <li><a href="../index.html">← Volver al inicio</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="registro">
+          <h1>Crear mi cuenta</h1>
+
+          <form action="#" method="post" novalidate>
+            <div>
+              <label for="nombre">Nombre completo</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                autocomplete="name"
+                aria-describedby="nombre-hint"
+                required
+              />
+              <small id="nombre-hint">Ingresa tu nombre y apellidos.</small>
+            </div>
+
+            <div>
+              <label for="correo">Correo electrónico</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                autocomplete="email"
+                aria-describedby="correo-hint"
+                required
+              />
+              <small id="correo-hint">Usaremos este correo para confirmar tu cuenta.</small>
+            </div>
+
+            <div>
+              <label for="telefono">Número de teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                autocomplete="tel"
+                pattern="[0-9]{10}"
+                aria-describedby="telefono-hint"
+                required
+              />
+              <small id="telefono-hint">10 dígitos, sin espacios ni guiones.</small>
+            </div>
+
+            <div>
+              <label for="genero">Género</label>
+              <select id="genero" name="genero" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+                <option value="otro">Otro</option>
+                <option value="no-decir">Prefiero no decir</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="5"
+                pattern="(?=.*[A-Z]).{5,}"
+                autocomplete="new-password"
+                aria-describedby="password-hint"
+                required
+              />
+              <small id="password-hint">Mínimo 5 caracteres y 1 letra mayúscula.</small>
+            </div>
+
+            <div>
+              <label for="confirmar-password">Confirmar contraseña</label>
+              <input
+                type="password"
+                id="confirmar-password"
+                name="confirmar_password"
+                minlength="5"
+                autocomplete="new-password"
+                aria-describedby="confirmar-password-hint"
+                required
+              />
+              <small id="confirmar-password-hint">Debe coincidir con la contraseña.</small>
+            </div>
+
+            <fieldset>
+              <legend>Términos y privacidad</legend>
+
+              <div>
+                <input type="checkbox" id="terminos" name="terminos" required />
+                <label for="terminos"
+                  >Acepto los <a href="terminos.html">Términos y condiciones</a></label
+                >
+              </div>
+
+              <div>
+                <input type="checkbox" id="privacidad" name="privacidad" required />
+                <label for="privacidad"
+                  >He leído la <a href="privacidad.html">Política de privacidad</a></label
+                >
+              </div>
+            </fieldset>
+
+            <button type="submit">Crear mi cuenta</button>
+          </form>
+
+          <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2026 Bodrios Fast Food. Todos los derechos reservados.</p>
+      </footer>
+    </div>
+  </body>
+</html>
