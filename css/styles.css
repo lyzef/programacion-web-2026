@@ -1,0 +1,29 @@
+.subtitulo_header {
+  color: orange;
+  font-size: 16px;  
+}
+
+h2 {
+  color: black;
+    text-align: center;
+}
+
+small {
+  color: black;
+    text-align: center;
+}
+
+p {
+  color: black;
+  font-size: 13px;  
+}
+
+#titulo {
+  color: orange;
+  text-align: left; 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
