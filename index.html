@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
-<link rel="canonical" href="https://www.restaurante-don-bodrios-fast-food.com/inicio">
+  <link
+    rel="canonical"
+    href="https://www.restaurante-don-bodrios-fast-food.com/inicio"
+  />
   <head>
     <title>Restaurante de Comida Rápida Don Bodrios</title>
     <meta charset="utf-8" />
@@ -9,9 +12,18 @@
       name="author"
       content="Miguel Angel Bautista Ortega, Dereck Hernández Sandoval, Carlos Alberto Camargo Montoya"
     />
-    <meta name="description" content="Esta es la Página del Restaurante Don Bodrios Fast Food, donde servimos la mejor comida rápida de La Paz, Baja California Sur." />
+    <meta
+      name="description"
+      content="Esta es la Página del Restaurante Don Bodrios Fast Food, donde servimos la mejor comida rápida de La Paz, Baja California Sur."
+    />
     <meta name="keywords" content="restaurante, pollo, fast food" />
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -31,7 +43,7 @@
     <main>
       <section id="inicio">
         <h1 id="titulo">Rápido, sabroso y sin esperas.</h1>
-        <p class="subtitulo_header">
+        <p id="subtitulo_header">
           Burgers jugosas, papas crujientes y combos que no te van a
           decepcionar.
         </p>
@@ -63,11 +75,9 @@
       <hr />
 
       <section id="promociones">
-        <small>¡Ofertas vigentes!</small>
-        <h2 >Promociones</h2>
-        <article>
-
-        <article>
+        <p class="etiqueta_seccion">¡Ofertas vigentes!</p>
+        <h2>Promociones</h2>
+        <article class="tarjeta">
           <img
             src="assets/images/menu/clasica-con-papas.jpg"
             alt="combo de hamburguesa clasica con papas"
@@ -76,16 +86,17 @@
             loading="lazy"
           />
           <br />
-          <small>Martes y jueves</small>
-          <h3>2x1 en Burgers</h3>
-          <p>Todos los martes y jueves.</p>
-          <b>$89</b><br />
+          <p class="etiqueta_seccion">Martes y jueves</p>
+          <p class="titulo_tarjeta">2x1 en Burgers</p>
+          <p class="descripcion_tarjeta">Todos los martes y jueves.</p>
+          <p class="precio_tarjeta">$89</p>
+          <br />
           <a href="#delivery">🛵 Pedir esta promo</a>
         </article>
 
         <hr />
 
-        <article>
+        <article class="tarjeta">
           <img
             src="assets/images/menu/combo-familiar.png"
             alt="combo familiar"
@@ -94,21 +105,22 @@
             loading="lazy"
           />
           <br />
-          <small>Ahorra $69</small>
-          <h3>Combo Familiar</h3>
-          <p>4 burgers + 4 papas + 4 bebidas a un precio increíble.</p>
-          <b>$399</b><br />
+          <p class="etiqueta_seccion">Ahorra $69</p>
+          <p class="titulo_tarjeta">Combo Familiar</p>
+          <p class="descripcion_tarjeta">
+            4 burgers + 4 papas + 4 bebidas a un precio increíble.
+          </p>
+          <p class="precio_tarjeta">$399</p>
+          <br />
           <a href="#delivery">🛵 Pedir esta promo</a>
         </article>
       </section>
-
       <hr />
-
       <section id="favoritos">
-        <small>Lo más pedido</small>
+        <p class="etiqueta_seccion">Lo más pedido</p>
         <h2>Nuestros favoritos</h2>
 
-        <article>
+        <article class="tarjeta">
           <img
             src="assets/images/menu/clasico-con-papas-2.jpg"
             alt="hamburguesa clasica"
@@ -117,16 +129,19 @@
             loading="lazy"
           />
           <br />
-          <small>⭐ Popular</small>
-          <h3>Bodrios classics</h3>
-          <p>Carne 200g, queso americano, lechuga, tomate y salsa especial.</p>
-          <b>$67</b><br />
+          <p class="etiqueta_seccion">⭐ Popular</p>
+          <p class="titulo_tarjeta">Bodrios classics</p>
+          <p class="descripcion_tarjeta">
+            Carne 200g, queso americano, lechuga, tomate y salsa especial.
+          </p>
+          <p class="precio_tarjeta">$67</p>
+          <br />
           <a href="#delivery">Pedir</a>
         </article>
 
         <hr />
 
-        <article>
+        <article class="tarjeta">
           <img
             src="assets/images/menu/papas-480w.webp"
             alt="papas clasicas"
@@ -135,10 +150,13 @@
             loading="lazy"
           />
           <br />
-          <small>⭐ Popular</small>
-          <h3>Papas Bodrios</h3>
-          <p>Papas crujientes con queso fundido y jalapeños al gusto.</p>
-          <b>$57</b><br />
+          <p class="etiqueta_seccion">⭐ Popular</p>
+          <p class="titulo_tarjeta">Papas Bodrios</p>
+          <p class="descripcion_tarjeta">
+            Papas crujientes con queso fundido y jalapeños al gusto.
+          </p>
+          <p class="precio_tarjeta">$57</p>
+          <br />
           <a href="#delivery">Pedir</a>
         </article>
       </section>
@@ -172,7 +190,7 @@
           </div>
         </figure>
 
-        <small>¿Quiénes somos?</small>
+        <p class="etiqueta_seccion">¿Quiénes somos?</p>
         <h2>Fast food hecho con carácter</h2>
         <p>
           Bodrios nació con una obsesión: hacer la mejor burger del barrio. Sin
@@ -194,7 +212,7 @@
       <hr />
 
       <section id="horarios">
-        <small>Horarios</small>
+        <p class="etiqueta_seccion">Horarios</p>
         <h2>Siempre listos para ti</h2>
 
         <article>

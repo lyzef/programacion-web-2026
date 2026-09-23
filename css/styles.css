@@ -1,29 +1,76 @@
+@font-face {
+  font-family: "Fredoka";
+  src: url("fonts/Fredoka-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-primario: #212121;
+  --color-secundario: #fefce8;
+  --color-texto: #3d3d3d;
+  --color-precio: #ffdd57;
+  --color-titulo: #f59e0b;
+  --color-boton: #fbbf24;
+}
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: "Fredoka", sans-serif;
+}
+
+.etiqueta_seccion {
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  text-align: center;
+}
+
 .subtitulo_header {
   color: orange;
-  font-size: 16px;  
+  font-size: 16px;
+}
+
+h1 {
+  color: black;
+  text-align: right;
 }
 
 h2 {
   color: black;
-    text-align: center;
-}
-
-small {
-  color: black;
-    text-align: center;
+  text-align: center;
 }
 
 p {
   color: black;
-  font-size: 13px;  
+  font-size: 13px;
 }
 
 #titulo {
   color: orange;
-  text-align: left; 
+  text-align: left;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+#inicio {
+  background-color: var(--color-primario);
+}
+#promociones {
+  background-color: var(--color-secundario);
+}
+#favoritos {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+#nosotros {
+  background-color: var(--color-secundario);
+}
+#horarios {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+#delivery {
+  background-color: var(--color-secundario);
+}
+# * {
+  margin: 0;
+  padding: 0;
 }
