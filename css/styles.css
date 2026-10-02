@@ -1,76 +1,136 @@
 @font-face {
   font-family: "Fredoka";
-  src: url("fonts/Fredoka-Variable.woff2") format("woff2-variations");
+  src: url("../fonts/Fredoka-VariableFont_wdth\,wght.ttf")
+    format("woff2-variations");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  --color-primario: #212121;
-  --color-secundario: #fefce8;
-  --color-texto: #3d3d3d;
-  --color-precio: #ffdd57;
-  --color-titulo: #f59e0b;
-  --color-boton: #fbbf24;
+  --color-primario: #fbbf24; /* Botones, ideal para destacar */
+  --color-primario-claro: #ffdd57; /* Detalles, Precios, */
+  --color-primario-oscuro: #f59e0b;
+  --color-bg-oscuro: #212121; /* Fondo de la página oscuro */
+  --color-bg-blanco: #fefce8; /* Fondo de la página */
+  --color-borde-oscuro: #3d3d3d; /* Texto */
+
+  /* Tipografía */
+  --fuente-principal: "Fredoka", monospace;
+  --peso-ligero: 300;
+  --peso-normal: 400;
+  --peso-titulo: 700;
+
+  --padding-seccion: 4rem;
 }
 body {
-  background-color: rgb(255, 255, 255);
-  font-family: "Fredoka", sans-serif;
+  background-color: var(--color-bg-blanco);
+  font-family: var(--fuente-principal);
 }
 
-.etiqueta_seccion {
-  color: rgb(0, 0, 0);
-  font-size: 12px;
-  text-align: center;
-}
-
-.subtitulo_header {
-  color: orange;
-  font-size: 16px;
-}
-
-h1 {
-  color: black;
-  text-align: right;
-}
-
-h2 {
-  color: black;
-  text-align: center;
-}
-
-p {
-  color: black;
-  font-size: 13px;
-}
-
-#titulo {
-  color: orange;
-  text-align: left;
-}
-
+/* Seccion inicio */
 #inicio {
-  background-color: var(--color-primario);
+  min-height: 100vh;
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  background-image: url("../assets/images/inicio/Imagen__Fondo-1280w.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.hero-titulo {
+  font-size: 4.5rem;
+  color: rgb(255, 255, 255);
+  line-height: 1.15;
+  font-weight: var(--peso-titulo);
+}
+
+.hero-titulo-highlight {
+  color: var(--color-primario);
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+#subtitulo_header {
+  font-size: 1.5rem;
+  color: var(--color-primario);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  max-width: var(--peso-ligero);
+}
+
+/*seccion promociones*/
 #promociones {
-  background-color: var(--color-secundario);
+  background-color: var(--color-bg-blanco);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
+/*seccion favoritos*/
 #favoritos {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
+/*seccion nosotros*/
 #nosotros {
-  background-color: var(--color-secundario);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
+/*seccion horarios*/
 #horarios {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
+/*seccion delivery*/
 #delivery {
-  background-color: var(--color-secundario);
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
-# * {
-  margin: 0;
-  padding: 0;
+/*seccion contacto*/
+#contacto {
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
+/* Tarjetas */
+
+/* Botones */
+.boton_destacado {
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+
+  width: fit-content;
+  padding: 0.75rem 2rem;
+
+  border: none;
+  border-radius: 50px;
+
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+/* Tarjetas de horario */
+
+/* Etiquetas */
+.etiqueta_seccion {
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+
+  width: fit-content;
+  padding: 0.1rem 0.7rem;
+
+  border: none;
+  border-radius: 50px;
+
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  max-width: var(--peso-titulo);
 }
