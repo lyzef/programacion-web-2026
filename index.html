@@ -26,18 +26,29 @@
     />
   </head>
   <body>
-    <header>
-      <h3>🍔 Bodrios Fast Food</h3>
-      <nav aria-label="Barra de navegacion principal">
+    <header class="encabezado">
+      <a class="marca" href="#inicio" aria-label="Bodrios Fast Food, inicio">
+        <span class="marca-icono" aria-hidden="true">🍔</span>
+        <span class="marca-texto">
+          <strong>Bodrios</strong>
+          <small>FAST FOOD</small>
+        </span>
+      </a>
+      <nav
+        class="navegacion-principal"
+        aria-label="Barra de navegacion principal"
+      >
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#menu">Menú</a></li>
           <li><a href="#promociones">Promociones</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#horarios">Horarios</a></li>
-          <li><a href="#delivery">🛵 Pedir a domicilio</a></li>
         </ul>
       </nav>
+      <a class="boton_destacado encabezado-pedido" href="#delivery"
+        >🛵 Pedir a domicilio</a
+      >
     </header>
 
     <main>
@@ -74,8 +85,10 @@
         />
         <br />
         -->
-        <a href="#menu" class="boton_destacado">Menú</a>
-        <a href="#delivery" class="boton_destacado">🛵 Pedir ahora</a>
+        <div class="grupo-enlaces">
+          <a href="#menu" class="boton_destacado">Menú</a>
+          <a href="#delivery" class="boton_transparente">🛵 Pedir ahora</a>
+        </div>
       </section>
 
       <hr />
@@ -219,27 +232,32 @@
 
       <section id="horarios">
         <p class="etiqueta_seccion">Horarios</p>
-        <h2>Siempre listos para ti</h2>
+        <h2 class="horarios-subtitulo">
+          Siempre listos<br />
+          <span class="horarios-subtitulo-highlight">para ti</span><br />
+        </h2>
 
-        <article>
-          <b>Lunes – Miércoles</b>
-          <p>10:00 am – 10:00 pm</p>
-        </article>
+        <div class="horarios-grid">
+          <article class="tarjeta-horario">
+            <b>Lunes – Miércoles</b>
+            <p>10:00 am – 10:00 pm</p>
+          </article>
 
-        <article>
-          <b>Jueves – Viernes</b>
-          <p>10:00 am – 11:00 pm</p>
-        </article>
+          <article class="tarjeta-horario">
+            <b>Jueves – Viernes</b>
+            <p>10:00 am – 11:00 pm</p>
+          </article>
 
-        <article>
-          <b>Sábado</b>
-          <p>9:00 am – 12:00 am</p>
-        </article>
+          <article class="tarjeta-horario">
+            <b>Sábado</b>
+            <p>9:00 am – 12:00 am</p>
+          </article>
 
-        <article>
-          <b>Domingo</b>
-          <p>9:00 am – 9:00 pm</p>
-        </article>
+          <article class="tarjeta-horario">
+            <b>Domingo</b>
+            <p>9:00 am – 9:00 pm</p>
+          </article>
+        </div>
       </section>
 
       <hr />
@@ -251,9 +269,12 @@
           Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30
           minutos.
         </p>
-        <a href="tel:6122126676" class="boton_destacado">📞 Llama ahora</a>
-        <a href="https://wa.me/526122126676">💬 WhatsApp</a>
-        <br />
+        <div class="grupo-enlaces">
+          <a href="tel:6122126676" class="boton_destacado">📞 Llama ahora</a>
+          <a href="https://wa.me/526122126676" class="boton_destacado"
+            >💬 WhatsApp</a
+          >
+        </div>
         <small>⚡ Entrega en 30 min</small>
         <small>📋 Menú completo</small>
         <small>🚫 Sin monto mínimo</small>
