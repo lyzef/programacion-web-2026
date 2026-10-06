@@ -43,7 +43,7 @@ body {
   z-index: 1000;
 }
 
-.marca {
+.encabezado__marca {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -52,7 +52,7 @@ body {
   text-decoration: none;
 }
 
-.marca-icono {
+.encabezado__icono {
   display: grid;
   width: 2.5rem;
   height: 2.5rem;
@@ -62,16 +62,16 @@ body {
   font-size: 1.25rem;
 }
 
-.marca-texto {
+.encabezado__texto {
   display: grid;
   line-height: 1;
 }
 
-.marca-texto strong {
+.encabezado__nombre {
   font-size: 1.1rem;
 }
 
-.marca-texto small {
+.encabezado__tag {
   margin-top: 0.2rem;
   color: var(--color-primario);
   font-size: 0.55rem;
@@ -79,7 +79,7 @@ body {
   letter-spacing: 0.16em;
 }
 
-.navegacion-principal ul {
+.navegacion__lista {
   display: flex;
   align-items: center;
   gap: clamp(1rem, 2.5vw, 2rem);
@@ -88,20 +88,23 @@ body {
   list-style: none;
 }
 
-.navegacion-principal a {
+.navegacion__link {
   color: var(--color-bg-blanco);
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 160ms ease;
 }
 
-.encabezado-pedido {
+.encabezado__pedido {
   justify-self: end;
   padding: 0.65rem 1.25rem;
   margin: 0;
   font-size: 0.8rem;
 }
 
+header .boton--destacado:hover::before {
+  content: "👤";
+}
 /* Seccion inicio */
 #inicio {
   min-height: 100vh;
@@ -113,7 +116,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.hero-titulo {
+.hero__titulo {
   font-size: 4.5rem;
   color: rgb(255, 255, 255);
   line-height: 1.15;
@@ -121,14 +124,14 @@ body {
   max-width: 40%;
 }
 
-.hero-titulo-highlight {
+.hero__titulo--highlight {
   color: var(--color-primario);
   font-weight: inherit;
   font-size: inherit;
   max-width: inherit;
 }
 
-#subtitulo_header {
+.hero__subtitulo {
   font-size: 1.5rem;
   color: var(--color-primario);
   margin-top: 0.5rem;
@@ -160,14 +163,14 @@ body {
   text-align: center;
 }
 
-.horarios-subtitulo {
+.horarios__subtitulo {
   font-size: 2.2rem;
   color: var(--color-primario);
-  margin-top: 0.7 rem;
-  margin-bottom: 1 rem;
+  margin-top: 0.7rem;
+  margin-bottom: 1rem;
 }
 
-.horarios-subtitulo-highlight {
+.horarios__subtitulo--highlight {
   color: var(--color-bg-blanco);
   font-weight: inherit;
   font-size: inherit;
@@ -187,7 +190,7 @@ body {
 }
 
 /* Tarjetas */
-.horarios-grid {
+.horarios__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
@@ -196,21 +199,24 @@ body {
 }
 
 /* Botones */
-.grupo-enlaces {
+.hero__acciones {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-#delivery .grupo-enlaces {
+#delivery .hero__acciones {
   justify-content: center;
 }
 
-.boton_destacado {
-  background-color: var(--color-primario);
-  color: var(--color-texto);
+.boton {
   text-decoration: none;
   font-weight: var(--peso-titulo);
+}
+
+.boton--destacado {
+  background-color: var(--color-primario);
+  color: var(--color-texto);
 
   width: fit-content;
   padding: 0.75rem 2rem;
@@ -225,11 +231,15 @@ body {
   gap: 0.5rem;
 }
 
-.boton_transparente {
+.boton--destacado:hover {
+  background-color: var(--color-primario-oscuro);
+  box-shadow: 0 0 16px var(--color-primario-oscuro);
+  transform: translateY(-2px);
+}
+
+.boton--transparente {
   background-color: transparent;
   color: var(--color-primario);
-  text-decoration: none;
-  font-weight: var(--peso-titulo);
 
   width: fit-content;
   padding: 0.75rem 2rem;
@@ -243,8 +253,14 @@ body {
   justify-content: center;
   gap: 0.5rem;
 }
+
+.boton--transparente:hover {
+  background-color: var(--color-primario-claro);
+  color: var(--color-bg-oscuro);
+  transform: translateY(-2px);
+}
 /* Tarjetas de horario */
-.tarjeta-horario {
+.horario {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -255,7 +271,7 @@ body {
   text-align: left;
 }
 
-.tarjeta-horario b {
+.horario b {
   color: var(--color-primario);
 }
 

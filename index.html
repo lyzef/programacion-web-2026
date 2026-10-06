@@ -5,7 +5,7 @@
     href="https://www.restaurante-don-bodrios-fast-food.com/inicio"
   />
   <head>
-    <title>Restaurante de Comida Rápida Don Bodrios</title>
+    <title>Restaurante de Comida Rápida Carlos Jr</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -27,38 +27,55 @@
   </head>
   <body>
     <header class="encabezado">
-      <a class="marca" href="#inicio" aria-label="Bodrios Fast Food, inicio">
-        <span class="marca-icono" aria-hidden="true">🍔</span>
-        <span class="marca-texto">
-          <strong>Bodrios</strong>
-          <small>FAST FOOD</small>
+      <a
+        class="encabezado__marca"
+        href="#inicio"
+        aria-label="Carlos JR, inicio"
+      >
+        <span class="encabezado__icono" aria-hidden="true">🍔</span>
+        <span class="encabezado__texto">
+          <strong class="encabezado__nombre">Carlos Jr</strong>
+          <small class="encabezado__tag">Comida rapida</small>
         </span>
       </a>
+
       <nav
-        class="navegacion-principal"
+        class="encabezado__nav navegacion"
         aria-label="Barra de navegacion principal"
       >
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#menu">Menú</a></li>
-          <li><a href="#promociones">Promociones</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#horarios">Horarios</a></li>
+        <ul class="navegacion__lista">
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#inicio">Inicio</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#menu">Menú</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#promociones">Promociones</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#nosotros">Nosotros</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#horarios">Horarios</a>
+          </li>
         </ul>
       </nav>
-      <a class="boton_destacado encabezado-pedido" href="#delivery"
-        >🛵 Pedir a domicilio</a
+
+      <a class="encabezado__pedido boton boton--destacado" href="#delivery"
+        >Entrar</a
       >
     </header>
 
     <main>
-      <section id="inicio">
-        <h1 class="hero-titulo">
+      <section id="inicio" class="hero">
+        <h1 class="hero__titulo">
           Rápido,<br />
-          <span class="hero-titulo-highlight">sabroso</span><br />
+          <span class="hero__titulo hero__titulo--highlight">sabroso</span
+          ><br />
           y sin esperas.
         </h1>
-        <p id="subtitulo_header">
+        <p id="subtitulo_header" class="hero__subtitulo">
           Burgers jugosas, papas crujientes y combos que no te van a
           decepcionar.
         </p>
@@ -85,18 +102,20 @@
         />
         <br />
         -->
-        <div class="grupo-enlaces">
-          <a href="#menu" class="boton_destacado">Menú</a>
-          <a href="#delivery" class="boton_transparente">🛵 Pedir ahora</a>
+        <div class="hero__acciones">
+          <a href="#menu" class="boton boton--destacado">Menú</a>
+          <a href="#delivery" class="boton boton--transparente"
+            >🛵 Pedir ahora</a
+          >
         </div>
       </section>
 
       <hr />
 
-      <section id="promociones">
+      <section id="promociones" class="promociones">
         <p class="etiqueta_seccion">¡Ofertas vigentes!</p>
         <h2>Promociones</h2>
-        <article class="tarjeta">
+        <article class="tarjeta promociones__tarjeta">
           <img
             src="assets/images/menu/clasica-con-papas.jpg"
             alt="combo de hamburguesa clasica con papas"
@@ -115,7 +134,7 @@
 
         <hr />
 
-        <article class="tarjeta">
+        <article class="tarjeta promociones__tarjeta">
           <img
             src="assets/images/menu/combo-familiar.png"
             alt="combo familiar"
@@ -135,11 +154,11 @@
         </article>
       </section>
       <hr />
-      <section id="favoritos">
+      <section id="favoritos" class="favoritos">
         <p class="etiqueta_seccion">Lo más pedido</p>
         <h2>Nuestros favoritos</h2>
 
-        <article class="tarjeta">
+        <article class="tarjeta favoritos__tarjeta">
           <img
             src="assets/images/menu/clasico-con-papas-2.jpg"
             alt="hamburguesa clasica"
@@ -160,7 +179,7 @@
 
         <hr />
 
-        <article class="tarjeta">
+        <article class="tarjeta favoritos__tarjeta">
           <img
             src="assets/images/menu/papas-480w.webp"
             alt="papas clasicas"
@@ -176,33 +195,33 @@
           </p>
           <p class="precio_tarjeta">$57</p>
           <br />
-          <a href="#delivery" class="boton_destacado">Pedir</a>
+          <a href="#delivery" class="boton boton--destacado">Pedir</a>
         </article>
       </section>
 
       <hr />
 
-      <section id="nosotros">
-        <figure class="nosotros-mosaico">
+      <section id="nosotros" class="nosotros">
+        <figure class="nosotros__mosaico">
           <img
             src="assets/images/inicio/hamburguesa-mosaico.png"
             alt="Hamburguesa con papas a la francesa crujientes"
             width="400"
             height="300"
             loading="lazy"
-            class="img-principal"
+            class="nosotros__imagen nosotros__imagen--principal"
           />
 
-          <div class="mosaico-columna">
+          <div class="nosotros__columna">
             <img
               src="assets/images/inicio/hamburguesa-mosaico-2.png"
               alt="Hamburguesa servida en caja"
               width="150"
               height="150"
               loading="lazy"
-              class="img-secundaria"
+              class="nosotros__imagen nosotros__imagen--secundaria"
             />
-            <div class="quienessomos-card">
+            <div class="nosotros__card">
               <b>10+</b>
               <span>años sirviendo</span>
             </div>
@@ -221,39 +240,41 @@
           sabroso y a un precio justo.
         </p>
 
-        <ul>
-          <li>🥩 Carne fresca</li>
-          <li>⚡ Servicio rápido</li>
-          <li>💛 Precio justo</li>
+        <ul class="nosotros__lista">
+          <li class="nosotros__item">🥩 Carne fresca</li>
+          <li class="nosotros__item">⚡ Servicio rápido</li>
+          <li class="nosotros__item">💛 Precio justo</li>
         </ul>
       </section>
 
       <hr />
 
-      <section id="horarios">
+      <section id="horarios" class="horarios">
         <p class="etiqueta_seccion">Horarios</p>
-        <h2 class="horarios-subtitulo">
+        <h2 class="horarios__subtitulo">
           Siempre listos<br />
-          <span class="horarios-subtitulo-highlight">para ti</span><br />
+          <span class="horarios__subtitulo horarios__subtitulo--highlight"
+            >para ti</span
+          ><br />
         </h2>
 
-        <div class="horarios-grid">
-          <article class="tarjeta-horario">
+        <div class="horarios__grid">
+          <article class="horario tarjeta-horario">
             <b>Lunes – Miércoles</b>
             <p>10:00 am – 10:00 pm</p>
           </article>
 
-          <article class="tarjeta-horario">
+          <article class="horario tarjeta-horario">
             <b>Jueves – Viernes</b>
             <p>10:00 am – 11:00 pm</p>
           </article>
 
-          <article class="tarjeta-horario">
+          <article class="horario tarjeta-horario">
             <b>Sábado</b>
             <p>9:00 am – 12:00 am</p>
           </article>
 
-          <article class="tarjeta-horario">
+          <article class="horario tarjeta-horario">
             <b>Domingo</b>
             <p>9:00 am – 9:00 pm</p>
           </article>
@@ -262,16 +283,18 @@
 
       <hr />
 
-      <section id="delivery">
+      <section id="delivery" class="delivery">
         <p>🛵</p>
         <h2>¡Lo llevamos a tu puerta!</h2>
         <p>
           Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30
           minutos.
         </p>
-        <div class="grupo-enlaces">
-          <a href="tel:6122126676" class="boton_destacado">📞 Llama ahora</a>
-          <a href="https://wa.me/526122126676" class="boton_destacado"
+        <div class="delivery__acciones hero__acciones">
+          <a href="tel:6122126676" class="boton boton--destacado"
+            >📞 Llama ahora</a
+          >
+          <a href="https://wa.me/526122126676" class="boton boton--destacado"
             >💬 WhatsApp</a
           >
         </div>
@@ -281,8 +304,8 @@
       </section>
     </main>
 
-    <footer id="contacto">
-      <section>
+    <footer id="contacto" class="footer">
+      <section class="footer__section">
         <h3>Bodrios Fast Food</h3>
         <p>
           Comida rápida con sabor real. Ingredientes frescos y servicio sin
@@ -290,30 +313,30 @@
         </p>
       </section>
 
-      <section>
+      <section class="footer__section">
         <h4>Navegación</h4>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#menu">Menú</a></li>
-          <li><a href="#promociones">Promociones</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#horarios">Horarios</a></li>
+        <ul class="footer__lista">
+          <li class="footer__item"><a href="#inicio">Inicio</a></li>
+          <li class="footer__item"><a href="#menu">Menú</a></li>
+          <li class="footer__item"><a href="#promociones">Promociones</a></li>
+          <li class="footer__item"><a href="#nosotros">Nosotros</a></li>
+          <li class="footer__item"><a href="#horarios">Horarios</a></li>
         </ul>
       </section>
 
-      <section>
+      <section class="footer__section">
         <h4>Contacto</h4>
         <p>📞 612 212 6676</p>
         <p>📧 hola@bodrios.com.mx</p>
         <p>📍 Ciudad de México</p>
       </section>
 
-      <section>
+      <section class="footer__section">
         <h4>Redes</h4>
-        <ul>
-          <li><a href="#">📘 Facebook</a></li>
-          <li><a href="#">📷 Instagram</a></li>
-          <li><a href="#">🐦 Twitter</a></li>
+        <ul class="footer__lista">
+          <li class="footer__item"><a href="#">📘 Facebook</a></li>
+          <li class="footer__item"><a href="#">📷 Instagram</a></li>
+          <li class="footer__item"><a href="#">🐦 Twitter</a></li>
         </ul>
       </section>
 
