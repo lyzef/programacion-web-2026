@@ -7,15 +7,15 @@
   font-style: normal;
   font-display: swap;
 }
-:root {
-  --color-primario: #fbbf24; /* Botones, ideal para destacar */
-  --color-primario-claro: #ffdd57; /* Detalles, Precios, */
-  --color-primario-oscuro: #f59e0b;
-  --color-bg-oscuro: #212121; /* Fondo de la página oscuro */
-  --color-bg-blanco: #fefce8; /* Fondo de la página */
-  --color-borde-oscuro: #3d3d3d; /* Texto */
 
-  /* Tipografía */
+:root {
+  --color-primario: #fbbf24;
+  --color-primario-claro: #ffdd57;
+  --color-primario-oscuro: #f59e0b;
+  --color-bg-oscuro: #212121;
+  --color-bg-blanco: #fefce8;
+  --color-borde-oscuro: #3d3d3d;
+
   --fuente-principal: "Fredoka", monospace;
   --peso-ligero: 300;
   --peso-normal: 400;
@@ -23,13 +23,17 @@
 
   --padding-seccion: 4rem;
 }
+
 body {
   margin: 0;
   background-color: var(--color-bg-blanco);
   font-family: var(--fuente-principal);
 }
 
-/* Encabezado y modificadores del mismo */
+h2 {
+  font-size: 2.2rem;
+}
+
 .encabezado {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -105,7 +109,7 @@ body {
 header .boton--destacado:hover::before {
   content: "👤";
 }
-/* Seccion inicio */
+
 #inicio {
   min-height: 100vh;
   background-color: var(--color-bg-oscuro);
@@ -139,24 +143,31 @@ header .boton--destacado:hover::before {
   max-width: 40%;
 }
 
-/*seccion promociones*/
 #promociones {
   background-color: var(--color-bg-blanco);
   padding: var(--padding-seccion);
   text-align: center;
 }
-/*seccion favoritos*/
+
+.promociones__titulo {
+  color: var(--color-bg-oscuro);
+}
+
 #favoritos {
   background-color: var(--color-bg-oscuro);
   padding: var(--padding-seccion);
   text-align: center;
 }
-/*seccion nosotros*/
+
+.favoritos__titulo {
+  color: var(--color-bg-blanco);
+}
+
 #nosotros {
   padding: var(--padding-seccion);
   text-align: center;
 }
-/*seccion horarios*/
+
 #horarios {
   background-color: var(--color-bg-oscuro);
   padding: var(--padding-seccion);
@@ -176,20 +187,19 @@ header .boton--destacado:hover::before {
   font-size: inherit;
   max-width: inherit;
 }
-/*seccion delivery*/
+
 #delivery {
   background-color: var(--color-bg-oscuro);
   padding: var(--padding-seccion);
   text-align: center;
 }
-/*seccion contacto*/
+
 #contacto {
   background-color: var(--color-bg-oscuro);
   padding: var(--padding-seccion);
   text-align: center;
 }
 
-/* Tarjetas */
 .horarios__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -198,7 +208,6 @@ header .boton--destacado:hover::before {
   margin: 2rem auto 0;
 }
 
-/* Botones */
 .hero__acciones {
   display: flex;
   flex-wrap: wrap;
@@ -259,7 +268,7 @@ header .boton--destacado:hover::before {
   color: var(--color-bg-oscuro);
   transform: translateY(-2px);
 }
-/* Tarjetas de horario */
+
 .horario {
   display: flex;
   align-items: center;
@@ -281,36 +290,91 @@ header .boton--destacado:hover::before {
   text-align: right;
 }
 
-@media (max-width: 600px) {
-  .horarios-grid {
-    grid-template-columns: 1fr;
-  }
+.tarjetas-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-@media (max-width: 760px) {
-  .encabezado {
-    grid-template-columns: 1fr auto;
-    gap: 0.75rem;
-  }
-
-  .navegacion-principal {
-    grid-column: 1 / -1;
-    grid-row: 2;
-  }
-
-  .navegacion-principal ul {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.25rem;
-  }
-
-  .encabezado-pedido {
-    grid-column: 2;
-    grid-row: 1;
-  }
+.tarjeta {
+  background-color: var(--color-bg-blanco);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  width: 300px;
+  margin: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Etiquetas */
+#favoritos .tarjeta {
+  background-color: #2b2b2b;
+  border-color: var(--color-borde-oscuro);
+  color: var(--color-bg-blanco);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.titulo_tarjeta {
+  font-size: 1.4rem;
+  font-weight: var(--peso-titulo);
+  margin: 0.5rem 0;
+  color: var(--color-bg-oscuro);
+}
+
+#favoritos .titulo_tarjeta {
+  color: var(--color-bg-blanco);
+}
+
+.descripcion_tarjeta {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  color: #555555;
+}
+
+#favoritos .descripcion_tarjeta {
+  color: #cccccc;
+}
+
+.precio_tarjeta {
+  font-size: 1.5rem;
+  font-weight: var(--peso-titulo);
+  color: var(--color-primario-oscuro);
+  margin: 0.5rem 0;
+}
+
+#favoritos .precio_tarjeta {
+  color: var(--color-primario);
+}
+
+.tarjeta .etiqueta_seccion {
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+.tarjeta a,
+.tarjeta .boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primario);
+  color: var(--color-borde-oscuro);
+  font-weight: var(--peso-titulo);
+  text-decoration: none;
+  padding: 0.65rem 1.75rem;
+  border-radius: 50px;
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
 .etiqueta_seccion {
   background-color: var(--color-primario);
   color: var(--color-borde-oscuro);
@@ -329,7 +393,6 @@ header .boton--destacado:hover::before {
   max-width: var(--peso-titulo);
 }
 
-/* Seccion Nosotros*/
 .nosotros {
   color: var(--color-borde-oscuro);
 }
@@ -350,7 +413,7 @@ header .boton--destacado:hover::before {
 .nosotros__imagen {
   border-radius: 1rem;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .nosotros__imagen--principal {
@@ -409,7 +472,6 @@ header .boton--destacado:hover::before {
   font-size: 1.2rem;
 }
 
-/* Seccion delivery */
 .delivery {
   color: var(--color-bg-blanco);
 }
@@ -435,21 +497,19 @@ header .boton--destacado:hover::before {
   font-size: 0.9rem;
 }
 
-/* Ajustes específicos para los botones dentro de delivery */
 .delivery__acciones .boton--destacado {
   font-size: 1.1rem;
   padding: 1rem 2.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* footer/contacto */
 .footer {
   color: var(--color-bg-blanco);
-  text-align: left; 
+  text-align: left;
   padding-bottom: 2rem;
 }
 
-.footer__section h3, 
+.footer__section h3,
 .footer__section h4 {
   color: var(--color-primario);
   margin-bottom: 1rem;
@@ -481,7 +541,6 @@ header .boton--destacado:hover::before {
   transition: color 0.2s ease;
 }
 
-/* Hover solicitado explícitamente en iteraciones anteriores para accesibilidad */
 .footer__item a:hover {
   color: var(--color-primario);
 }
@@ -492,7 +551,34 @@ header .boton--destacado:hover::before {
   margin: 2rem 0 1rem;
 }
 
-/* media queries */
+@media (max-width: 600px) {
+  .horarios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .encabezado {
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+  }
+
+  .navegacion-principal {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .navegacion-principal ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.25rem;
+  }
+
+  .encabezado-pedido {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
 
 @media (min-width: 768px) {
   .footer {
@@ -506,8 +592,7 @@ header .boton--destacado:hover::before {
     flex-direction: column;
   }
 
-  /* La línea separadora y el texto de copyright abarcan todas las columnas */
-  .footer > hr, 
+  .footer > hr,
   .footer > p:last-child {
     grid-column: 1 / -1;
     text-align: center;
@@ -518,11 +603,8 @@ header .boton--destacado:hover::before {
   .nosotros__mosaico {
     flex-direction: column;
   }
-  .nosotros__imagen--principal, 
+  .nosotros__imagen--principal,
   .nosotros__columna {
     width: 100%;
   }
-}
-
-  max-width: var(--peso-titulo);
 }
