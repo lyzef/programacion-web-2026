@@ -1,3 +1,28 @@
+/* ÍNDICE
+  1. FUENTES
+  2. RESET
+  3. VARIABLES
+  4. BASE Y LAYOUT
+  5. ENCABEZADO Y NAVEGACIÓN
+  6. COMPONENTE: BOTÓN
+  7. COMPONENTE: GRUPO DE ACCIONES
+  8. COMPONENTE: ETIQUETA
+  9. COMPONENTE: TARJETA
+  10. HERO (INICIO)
+  11. PROMOCIONES
+  12. FAVORITOS
+  13. NOSOTROS
+  14. HORARIOS
+  15. DELIVERY
+  16. FOOTER
+  17. MEDIA QUERIES
+  17.1 Tablet (601px – 1023px)
+  17.2 Móvil (hasta 600px)
+  17.3 Escritorio (desde 1024px)
+*/
+
+/* 1. FUENTES */
+
 @font-face {
   font-family: "Fredoka";
   src: url("../fonts/Fredoka-VariableFont_wdth\,wght.ttf")
@@ -8,11 +33,15 @@
   font-display: swap;
 }
 
+/* 2. RESET */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+/* 3. VARIABLES */
 
 :root {
   --color-primario: #fbbf24;
@@ -42,7 +71,13 @@
   --radio-pequeno: 0.75rem;
   --radio-mediano: 1rem;
   --radio-grande: 1.25rem;
+
+  /* Tipografía fluida: mínimo 1.75rem, crece con la pantalla (1rem + 3vw), máximo 3rem.
+     Reemplaza las 4 media queries. rem + vw respeta el zoom del usuario. */
+  --tam-titulo: clamp(1.75rem, 1rem + 3vw, 3rem);
 }
+
+/* 4. BASE Y LAYOUT */
 
 body {
   display: grid;
@@ -57,8 +92,15 @@ body {
 }
 
 h2 {
-  font-size: clamp(1.8rem, calc(1.2rem + 2vw), 2.2rem);
+  font-size: var(--tam-titulo);
 }
+
+main {
+  grid-area: main;
+  min-width: 0;
+}
+
+/* 5. ENCABEZADO Y NAVEGACIÓN */
 
 .encabezado {
   grid-area: header;
@@ -72,11 +114,6 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-main {
-  grid-area: main;
-  min-width: 0;
 }
 
 .encabezado__marca {
@@ -113,7 +150,7 @@ main {
   font-size: clamp(1rem, calc(0.8rem + 0.5vw), 1.1rem);
 }
 
-.encabezado__tag {
+.encabezado__eslogan {
   margin-top: 0.2rem;
   color: var(--color-primario);
   font-size: clamp(0.5rem, calc(0.4rem + 0.2vw), 0.55rem);
@@ -138,6 +175,11 @@ main {
   transition: color 160ms ease;
 }
 
+.navegacion__link:hover,
+.navegacion__link:focus-visible {
+  color: var(--color-primario);
+}
+
 .encabezado__pedido {
   justify-self: end;
   padding: 0.65rem 1.25rem;
@@ -145,137 +187,35 @@ main {
   font-size: clamp(0.75rem, calc(0.65rem + 0.2vw), 0.8rem);
 }
 
-header .boton--destacado:hover::before {
+.encabezado__pedido:hover::before {
   content: "👤";
 }
 
-#inicio {
-  min-height: 100vh;
-  background-color: var(--color-bg-oscuro);
-  padding: var(--padding-seccion);
-  background-image: url("../assets/images/inicio/Imagen__Fondo-1280w.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.hero__titulo {
-  font-size: clamp(3.5rem, calc(2.5rem + 3vw), 4.5rem);
-  color: var(--color-blanco-puro);
-  line-height: 1.15;
-  font-weight: var(--peso-titulo);
-  max-width: 40%;
-}
-
-.hero__titulo--highlight {
-  color: var(--color-primario);
-  font-weight: inherit;
-  font-size: inherit;
-  max-width: inherit;
-}
-
-.hero__subtitulo {
-  font-size: clamp(1.1rem, calc(0.7rem + 1.5vw), 1.5rem);
-  color: var(--color-primario);
-  margin-top: var(--espaciado-xs);
-  margin-bottom: var(--espaciado-md);
-  max-width: 40%;
-}
-
-#promociones {
-  background-color: var(--color-bg-blanco);
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-.promociones__titulo {
-  color: var(--color-bg-oscuro);
-}
-
-#favoritos {
-  background-color: var(--color-bg-oscuro);
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-.favoritos__titulo {
-  color: var(--color-bg-blanco);
-}
-
-#nosotros {
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-#horarios {
-  background-color: var(--color-bg-oscuro);
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-.horarios__subtitulo {
-  font-size: clamp(1.8rem, calc(1.2rem + 2vw), 2.2rem);
-  color: var(--color-primario);
-  margin-top: 0.7rem;
-  margin-bottom: var(--espaciado-md);
-}
-
-.horarios__subtitulo--highlight {
-  color: var(--color-bg-blanco);
-  font-weight: inherit;
-  font-size: inherit;
-  max-width: inherit;
-}
-
-#delivery {
-  background-color: var(--color-bg-oscuro);
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-#contacto {
-  background-color: var(--color-bg-oscuro);
-  padding: var(--padding-seccion);
-  text-align: center;
-}
-
-.horarios__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--espaciado-sm);
-  max-width: 900px;
-  margin: var(--espaciado-xl) auto 0;
-}
-
-.hero__acciones {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espaciado-md);
-}
-
-#delivery .hero__acciones {
-  justify-content: center;
-}
+/* 6. COMPONENTE: BOTÓN */
 
 .boton {
   text-decoration: none;
   font-weight: var(--peso-titulo);
+
+  /* Se declara en el estado base (no en :hover) para que anime la entrada
+     Y la salida. Solo las propiedades que cambian; nunca `all`. */
+  transition:
+    translate 160ms ease,
+    scale 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
 }
 
-.boton--destacado,
-.boton--transparente {
-  transition: translate 160ms ease, scale 160ms ease;
-}
-
-.boton--destacado:hover,
-.boton--destacado:focus-visible,
-.boton--transparente:hover,
-.boton--transparente:focus-visible {
+.boton--primario:hover,
+.boton--primario:focus-visible,
+.boton--secundario:hover,
+.boton--secundario:focus-visible {
   translate: 0 -2px;
   scale: 1.03;
 }
 
-.boton--destacado {
+.boton--primario {
   background-color: var(--color-primario);
   color: var(--color-texto);
 
@@ -292,12 +232,13 @@ header .boton--destacado:hover::before {
   gap: var(--espaciado-xs);
 }
 
-.boton--destacado:hover {
+.boton--primario:hover,
+.boton--primario:focus-visible {
   background-color: var(--color-primario-oscuro);
   box-shadow: 0 0 16px var(--color-primario-oscuro);
 }
 
-.boton--transparente {
+.boton--secundario {
   background-color: transparent;
   color: var(--color-primario);
 
@@ -314,33 +255,47 @@ header .boton--destacado:hover::before {
   gap: var(--espaciado-xs);
 }
 
-.boton--transparente:hover {
+.boton--secundario:hover,
+.boton--secundario:focus-visible {
   background-color: var(--color-primario-claro);
   color: var(--color-bg-oscuro);
 }
 
-.horario {
+/* 7. COMPONENTE: GRUPO DE ACCIONES */
+
+.acciones {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--espaciado-md);
-  padding: var(--espaciado-md) 1.25rem;
-  border-radius: var(--radio-mediano);
-  background-color: var(--color-borde-oscuro);
-  text-align: left;
 }
 
-.horario b {
-  color: var(--color-primario);
+.acciones--centrado {
+  justify-content: center;
 }
 
-.tarjeta-horario p {
-  margin: 0;
-  color: var(--color-bg-blanco);
-  text-align: right;
+/* 8. COMPONENTE: ETIQUETA */
+
+.etiqueta {
+  background-color: var(--color-primario);
+  color: var(--color-borde-oscuro);
+  font-weight: var(--peso-titulo);
+
+  width: fit-content;
+  padding: 0.3rem 0.7rem;
+
+  border: none;
+  border-radius: var(--radio-pildora);
+
+  display: inline;
+  align-items: center;
+  justify-content: center;
+
+  max-width: var(--peso-titulo);
 }
 
-.tarjetas-contenedor {
+/* 9. COMPONENTE: TARJETA */
+
+.tarjetas {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--espaciado-lg);
@@ -366,48 +321,30 @@ header .boton--destacado:hover::before {
     margin-bottom: var(--espaciado-xs);
   }
 
-  & .etiqueta_seccion {
+  & .etiqueta {
     display: inline-block;
     margin: var(--espaciado-xs) 0;
   }
 }
 
-#favoritos .tarjeta {
-  background-color: var(--color-bg-tarjeta-oscuro);
-  border-color: var(--color-borde-oscuro);
-  color: var(--color-bg-blanco);
-}
-
-.titulo_tarjeta {
+.tarjeta__titulo {
   font-size: clamp(1.2rem, calc(0.8rem + 1vw), 1.4rem);
   font-weight: var(--peso-titulo);
   margin: var(--espaciado-xs) 0;
   color: var(--color-bg-oscuro);
 }
 
-#favoritos .titulo_tarjeta {
-  color: var(--color-bg-blanco);
-}
-
-.descripcion_tarjeta {
+.tarjeta__descripcion {
   font-size: clamp(0.9rem, calc(0.8rem + 0.3vw), 0.95rem);
   margin: var(--espaciado-xs) 0;
   color: var(--color-texto-secundario);
 }
 
-#favoritos .descripcion_tarjeta {
-  color: var(--color-texto-secundario-oscuro);
-}
-
-.precio_tarjeta {
+.tarjeta__precio {
   font-size: clamp(1.3rem, calc(0.8rem + 1.5vw), 1.5rem);
   font-weight: var(--peso-titulo);
   color: var(--color-primario-oscuro);
   margin: var(--espaciado-xs) 0;
-}
-
-#favoritos .precio_tarjeta {
-  color: var(--color-primario);
 }
 
 .tarjeta a,
@@ -425,22 +362,88 @@ header .boton--destacado:hover::before {
   width: fit-content;
 }
 
-.etiqueta_seccion {
-  background-color: var(--color-primario);
-  color: var(--color-borde-oscuro);
+/* 10. HERO (INICIO) */
+
+#inicio {
+  min-height: 100vh;
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  background-image: url("../assets/images/inicio/Imagen__Fondo-1280w.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__titulo {
+  font-size: clamp(3.5rem, calc(2.5rem + 3vw), 4.5rem);
+  color: var(--color-blanco-puro);
+  line-height: 1.15;
   font-weight: var(--peso-titulo);
+  max-width: 40%;
+}
 
-  width: fit-content;
-  padding: 0.3rem 0.7rem;
+.hero__titulo--destacado {
+  color: var(--color-primario);
+  font-weight: inherit;
+  font-size: inherit;
+  max-width: inherit;
+}
 
-  border: none;
-  border-radius: var(--radio-pildora);
+.hero__subtitulo {
+  font-size: clamp(1.1rem, calc(0.7rem + 1.5vw), 1.5rem);
+  color: var(--color-primario);
+  margin-top: var(--espaciado-xs);
+  margin-bottom: var(--espaciado-md);
+  max-width: 40%;
+}
 
-  display: inline;
-  align-items: center;
-  justify-content: center;
+/* 11. PROMOCIONES */
 
-  max-width: var(--peso-titulo);
+#promociones {
+  background-color: var(--color-bg-blanco);
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
+.promociones__titulo {
+  color: var(--color-bg-oscuro);
+}
+
+/* 12. FAVORITOS */
+
+#favoritos {
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
+.favoritos__titulo {
+  color: var(--color-bg-blanco);
+}
+
+#favoritos .tarjeta {
+  background-color: var(--color-bg-tarjeta-oscuro);
+  border-color: var(--color-borde-oscuro);
+  color: var(--color-bg-blanco);
+}
+
+#favoritos .tarjeta__titulo {
+  color: var(--color-bg-blanco);
+}
+
+#favoritos .tarjeta__descripcion {
+  color: var(--color-texto-secundario-oscuro);
+}
+
+#favoritos .tarjeta__precio {
+  color: var(--color-primario);
+}
+
+/* 13. NOSOTROS */
+
+#nosotros {
+  padding: var(--padding-seccion);
+  text-align: center;
 }
 
 .nosotros {
@@ -483,7 +486,7 @@ header .boton--destacado:hover::before {
   height: auto;
 }
 
-.nosotros__card {
+.nosotros__dato {
   background-color: var(--color-primario);
   padding: var(--espaciado-lg);
   border-radius: var(--radio-mediano);
@@ -522,6 +525,65 @@ header .boton--destacado:hover::before {
   font-size: clamp(1rem, calc(0.6rem + 1vw), 1.2rem);
 }
 
+/* 14. HORARIOS */
+
+#horarios {
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
+.horarios__subtitulo {
+  font-size: var(--tam-titulo);
+  color: var(--color-primario);
+  margin-top: 0.7rem;
+  margin-bottom: var(--espaciado-md);
+}
+
+.horarios__subtitulo--destacado {
+  color: var(--color-bg-blanco);
+  font-weight: inherit;
+  font-size: inherit;
+  max-width: inherit;
+}
+
+.horarios__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espaciado-sm);
+  max-width: 900px;
+  margin: var(--espaciado-xl) auto 0;
+}
+
+.horarios__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaciado-md);
+  padding: var(--espaciado-md) 1.25rem;
+  border-radius: var(--radio-mediano);
+  background-color: var(--color-borde-oscuro);
+  text-align: left;
+}
+
+.horarios__item b {
+  color: var(--color-primario);
+}
+
+.horarios__item p {
+  margin: 0;
+  color: var(--color-bg-blanco);
+  text-align: right;
+}
+
+/* 15. DELIVERY */
+
+#delivery {
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
 .delivery {
   color: var(--color-bg-blanco);
 }
@@ -547,10 +609,18 @@ header .boton--destacado:hover::before {
   font-size: clamp(0.8rem, calc(0.6rem + 0.5vw), 0.9rem);
 }
 
-.delivery__acciones .boton--destacado {
+.delivery__acciones .boton--primario {
   font-size: clamp(1rem, calc(0.7rem + 0.8vw), 1.1rem);
   padding: var(--espaciado-md) 2.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 16. FOOTER */
+
+#contacto {
+  background-color: var(--color-bg-oscuro);
+  padding: var(--padding-seccion);
+  text-align: center;
 }
 
 .footer {
@@ -564,14 +634,14 @@ header .boton--destacado:hover::before {
   text-align: left;
 }
 
-.footer__section h3,
-.footer__section h4 {
+.footer__seccion h3,
+.footer__seccion h4 {
   color: var(--color-primario);
   margin-bottom: var(--espaciado-md);
   font-size: clamp(1.1rem, calc(0.7rem + 1vw), 1.2rem);
 }
 
-.footer__section p {
+.footer__seccion p {
   margin: var(--espaciado-xs) 0;
   font-weight: var(--peso-ligero);
   font-size: clamp(0.9rem, calc(0.8rem + 0.3vw), 0.95rem);
@@ -579,13 +649,12 @@ header .boton--destacado:hover::before {
 }
 
 .footer__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-sm);
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.footer__item {
-  margin-bottom: var(--espaciado-sm);
 }
 
 .footer__item a {
@@ -596,7 +665,8 @@ header .boton--destacado:hover::before {
   transition: color 0.2s ease;
 }
 
-.footer__item a:hover {
+.footer__item a:hover,
+.footer__item a:focus-visible {
   color: var(--color-primario);
 }
 
@@ -605,6 +675,10 @@ header .boton--destacado:hover::before {
   border-top: 1px solid var(--color-borde-oscuro);
   margin: var(--espaciado-xl) 0 var(--espaciado-md);
 }
+
+/* 17. MEDIA QUERIES */
+
+/* 17.1 Tablet (601px – 1023px) */
 
 @media (min-width: 601px) and (max-width: 1023px) {
   :root {
@@ -640,11 +714,11 @@ header .boton--destacado:hover::before {
     max-width: 65%;
   }
 
-  .tarjetas-contenedor {
+  .tarjetas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .horarios__grid {
+  .horarios__lista {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -658,7 +732,7 @@ header .boton--destacado:hover::before {
     gap: var(--espaciado-xl);
   }
 
-  .footer__section {
+  .footer__seccion {
     display: flex;
     flex-direction: column;
   }
@@ -670,13 +744,11 @@ header .boton--destacado:hover::before {
   }
 }
 
+/* 17.2 Móvil (hasta 600px) */
+
 @media (max-width: 600px) {
   :root {
     --padding-seccion: 1.5rem;
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, calc(1.2rem + 3.5vw), 2.2rem);
   }
 
   #inicio,
@@ -732,16 +804,16 @@ header .boton--destacado:hover::before {
     max-width: none;
   }
 
-  .hero__acciones {
+  .acciones {
     gap: var(--espaciado-xs);
   }
 
-  .boton--destacado,
-  .boton--transparente {
+  .boton--primario,
+  .boton--secundario {
     padding: var(--espaciado-sm) var(--espaciado-lg);
   }
 
-  .tarjetas-contenedor {
+  .tarjetas {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -750,7 +822,7 @@ header .boton--destacado:hover::before {
     aspect-ratio: 8 / 5;
   }
 
-  .horarios__grid {
+  .horarios__lista {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -802,6 +874,8 @@ header .boton--destacado:hover::before {
   }
 }
 
+/* 17.3 Escritorio (desde 1024px) */
+
 @media (min-width: 1024px) {
   .footer {
     display: grid;
@@ -809,7 +883,7 @@ header .boton--destacado:hover::before {
     gap: var(--espaciado-xl);
   }
 
-  .footer__section {
+  .footer__seccion {
     display: flex;
     flex-direction: column;
   }
