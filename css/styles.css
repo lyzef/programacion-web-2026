@@ -44,6 +44,7 @@
 /* 3. VARIABLES */
 
 :root {
+  color-scheme: light dark;
   --color-primario: #fbbf24;
   --color-primario-claro: #ffdd57;
   --color-primario-oscuro: #f59e0b;
@@ -55,6 +56,9 @@
   --color-texto-secundario: #555555;
   --color-texto-secundario-oscuro: #cccccc;
   --color-bg-tarjeta-oscuro: #2b2b2b;
+  --color-fondo-pagina: var(--color-bg-blanco);
+  --color-fondo-tarjeta: var(--color-bg-blanco);
+  --color-texto-principal: var(--color-borde-oscuro);
 
   --fuente-principal: "Fredoka", monospace;
   --peso-ligero: 300;
@@ -87,7 +91,8 @@ body {
     "footer";
   grid-template-columns: minmax(0, 1fr);
   margin: 0;
-  background-color: var(--color-bg-blanco);
+  background-color: var(--color-fondo-pagina);
+  color: var(--color-texto-principal);
   font-family: var(--fuente-principal);
 }
 
@@ -258,7 +263,7 @@ main {
 .boton--secundario:hover,
 .boton--secundario:focus-visible {
   background-color: var(--color-primario-claro);
-  color: var(--color-bg-oscuro);
+  color: var(--color-texto-principal);
 }
 
 /* 7. COMPONENTE: GRUPO DE ACCIONES */
@@ -303,7 +308,7 @@ main {
 }
 
 .tarjeta {
-  background-color: var(--color-bg-blanco);
+  background-color: var(--color-fondo-tarjeta);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radio-grande);
   padding: var(--espaciado-lg);
@@ -324,6 +329,51 @@ main {
   & .etiqueta {
     display: inline-block;
     margin: var(--espaciado-xs) 0;
+  }
+}
+
+@keyframes pulso_tridimensional {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.15) translateY(-6px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.8;
+  }
+}
+
+.insignia--destacada {
+  animation: pulso_tridimensional 2.5s ease-in-out infinite normal both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo-pagina: #121212;
+    --color-fondo-tarjeta: #1e1e1e;
+    --color-texto-principal: #ffffff;
+    --color-texto-secundario: #cccccc;
+  }
+
+  #promociones .tarjeta {
+    border-color: var(--color-borde-oscuro);
   }
 }
 
@@ -400,13 +450,13 @@ main {
 /* 11. PROMOCIONES */
 
 #promociones {
-  background-color: var(--color-bg-blanco);
+  background-color: var(--color-fondo-pagina);
   padding: var(--padding-seccion);
   text-align: center;
 }
 
 .promociones__titulo {
-  color: var(--color-bg-oscuro);
+  color: var(--color-texto-principal);
 }
 
 /* 12. FAVORITOS */
@@ -447,11 +497,11 @@ main {
 }
 
 .nosotros {
-  color: var(--color-borde-oscuro);
+  color: var(--color-texto-principal);
 }
 
 .nosotros h2 {
-  color: var(--color-bg-oscuro);
+  color: var(--color-texto-principal);
 }
 
 .nosotros__mosaico {
@@ -521,7 +571,7 @@ main {
 
 .nosotros__item {
   font-weight: var(--peso-titulo);
-  color: var(--color-borde-oscuro);
+  color: var(--color-texto-principal);
   font-size: clamp(1rem, calc(0.6rem + 1vw), 1.2rem);
 }
 
