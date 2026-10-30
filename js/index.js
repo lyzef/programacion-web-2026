@@ -53,3 +53,25 @@
     });
   });
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnMenu = document.getElementById('btn-menu');
+  const menuNav = document.getElementById('menu-nav');
+
+  if (btnMenu && menuNav) {
+    btnMenu.addEventListener('click', () => {
+      const abierto = menuNav.classList.toggle('activo');
+      btnMenu.setAttribute('aria-expanded', String(abierto));
+      btnMenu.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+    });
+
+    const enlacesMenu = menuNav.querySelectorAll('.navegacion__link');
+    enlacesMenu.forEach(enlace => {
+      enlace.addEventListener('click', () => {
+        menuNav.classList.remove('activo');
+        btnMenu.setAttribute('aria-expanded', 'false');
+        btnMenu.setAttribute('aria-label', 'Abrir menú');
+      });
+    });
+  }
+});
