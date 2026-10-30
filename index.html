@@ -27,23 +27,18 @@
   </head>
   <body>
     <header class="encabezado">
-      <a
-        class="encabezado__marca"
-        href="#inicio"
-        aria-label="Carlos JR, inicio"
-      >
-        <span class="encabezado__icono" aria-hidden="true">🍔</span>
-        <span class="encabezado__texto">
-          <strong class="encabezado__nombre">Carlos Jr</strong>
-          <small class="encabezado__eslogan">Comida rapida</small>
-        </span>
-      </a>
+  <a class="encabezado__marca" href="#inicio" aria-label="Carlos JR, inicio">
+    <!-- ... tu código de logo ... -->
+  </a>
 
-      <nav
-        class="encabezado__nav navegacion"
-        aria-label="Barra de navegacion principal"
-      >
-        <ul class="navegacion__lista">
+  <!-- Botón hamburguesa nuevo -->
+  <button id="btn-menu" class="encabezado__hamburguesa" aria-label="Abrir menú">
+    ☰
+  </button>
+
+  <!-- Se agregó id="menu-nav" -->
+  <nav id="menu-nav" class="encabezado__nav navegacion" aria-label="Barra de navegacion principal">
+    <ul class="navegacion__lista">
           <li class="navegacion__item">
             <a class="navegacion__link" href="#inicio">Inicio</a>
           </li>
@@ -61,17 +56,16 @@
           </li>
         </ul>
       </nav>
+    </ul>
+  </nav>
 
-      <a class="encabezado__pedido boton boton--primario" href="#delivery"
-        >Entrar</a
-      >
-    </header>
-
+  <a class="encabezado__pedido boton boton--destacado" href="#delivery">Entrar</a>
+</header>
     <main>
       <section id="inicio" class="hero">
         <h1 class="hero__titulo">
           Rápido,<br />
-          <span class="hero__titulo hero__titulo--destacado">sabroso</span
+          <span class="hero__titulo hero__titulo--highlight">sabroso</span
           ><br />
           y sin esperas.
         </h1>
@@ -102,19 +96,21 @@
         />
         <br />
         -->
-        <div class="acciones">
-          <a href="#menu" class="boton boton--primario">Menú</a>
-          <a href="#delivery" class="boton boton--secundario">🛵 Pedir ahora</a>
+        <div class="hero__acciones">
+          <a href="#menu" class="boton boton--destacado">Menú</a>
+          <a href="#delivery" class="boton boton--transparente"
+            >🛵 Pedir ahora</a
+          >
         </div>
       </section>
 
       <hr />
 
       <section id="promociones" class="promociones">
-        <p class="etiqueta">¡Ofertas vigentes!</p>
+        <p class="etiqueta_seccion">¡Ofertas vigentes!</p>
         <h2 class="promociones__titulo">Promociones especiales</h2>
 
-        <div class="tarjetas">
+        <div class="tarjetas-contenedor">
           <article class="tarjeta promociones__tarjeta">
             <img
               src="assets/images/menu/clasica-con-papas.jpg"
@@ -124,14 +120,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">Lunes a Miércoles</p>
-            <p class="tarjeta__titulo">Duo Burger</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">Lunes a Miércoles</p>
+            <p class="titulo_tarjeta">Duo Burger</p>
+            <p class="descripcion_tarjeta">
               2 burgers con queso a un precio especial.
             </p>
-            <p class="tarjeta__precio">$129</p>
+            <p class="precio_tarjeta">$129</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >🛵 Pedir a domicilio</a
             >
           </article>
@@ -145,12 +141,12 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">Martes y jueves</p>
-            <p class="tarjeta__titulo">2x1 en Burgers</p>
-            <p class="tarjeta__descripcion">Todos los martes y jueves.</p>
-            <p class="tarjeta__precio">$89</p>
+            <p class="etiqueta_seccion">Martes y jueves</p>
+            <p class="titulo_tarjeta">2x1 en Burgers</p>
+            <p class="descripcion_tarjeta">Todos los martes y jueves.</p>
+            <p class="precio_tarjeta">$89</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >🛵 Pedir a domicilio</a
             >
           </article>
@@ -164,14 +160,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">Ahorra $69</p>
-            <p class="tarjeta__titulo">Combo Familiar</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">Ahorra $69</p>
+            <p class="titulo_tarjeta">Combo Familiar</p>
+            <p class="descripcion_tarjeta">
               4 burgers + 4 papas + 4 bebidas a un precio increíble.
             </p>
-            <p class="tarjeta__precio">$399</p>
+            <p class="precio_tarjeta">$399</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >🛵 Pedir a domicilio</a
             >
           </article>
@@ -185,14 +181,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">Fin de semana</p>
-            <p class="tarjeta__titulo">Combo Pareja</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">Fin de semana</p>
+            <p class="titulo_tarjeta">Combo Pareja</p>
+            <p class="descripcion_tarjeta">
               2 burgers + 2 papas grandes + 2 refrescos.
             </p>
-            <p class="tarjeta__precio">$219</p>
+            <p class="precio_tarjeta">$219</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >🛵 Pedir a domicilio</a
             >
           </article>
@@ -202,10 +198,10 @@
       <hr />
 
       <section id="favoritos" class="favoritos">
-        <p class="etiqueta">Lo más pedido</p>
+        <p class="etiqueta_seccion">Lo más pedido</p>
         <h2 class="favoritos__titulo">Nuestros favoritos</h2>
 
-        <div class="tarjetas">
+        <div class="tarjetas-contenedor">
           <article class="tarjeta favoritos__tarjeta">
             <img
               src="assets/images/menu/clasico-con-papas-2.jpg"
@@ -215,14 +211,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">⭐ Popular</p>
-            <p class="tarjeta__titulo">Bacon Supreme</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">⭐ Popular</p>
+            <p class="titulo_tarjeta">Bacon Supreme</p>
+            <p class="descripcion_tarjeta">
               Doble carne, tiras de tocino crujiente y salsa BBQ.
             </p>
-            <p class="tarjeta__precio">$85</p>
+            <p class="precio_tarjeta">$85</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >Pedir a domicilio</a
             >
           </article>
@@ -236,14 +232,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">⭐ Popular</p>
-            <p class="tarjeta__titulo">Bodrios classics</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">⭐ Popular</p>
+            <p class="titulo_tarjeta">Bodrios classics</p>
+            <p class="descripcion_tarjeta">
               Carne 200g, queso americano, lechuga, tomate y salsa especial.
             </p>
-            <p class="tarjeta__precio">$67</p>
+            <p class="precio_tarjeta">$67</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >Pedir a domicilio</a
             >
           </article>
@@ -257,14 +253,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">⭐ Popular</p>
-            <p class="tarjeta__titulo">Papas Bodrios</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">⭐ Popular</p>
+            <p class="titulo_tarjeta">Papas Bodrios</p>
+            <p class="descripcion_tarjeta">
               Papas crujientes con queso fundido y jalapeños al gusto.
             </p>
-            <p class="tarjeta__precio">$57</p>
+            <p class="precio_tarjeta">$57</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >Pedir a domicilio</a
             >
           </article>
@@ -278,14 +274,14 @@
               loading="lazy"
             />
             <br />
-            <p class="etiqueta">⭐ Popular</p>
-            <p class="tarjeta__titulo">Boneless Box</p>
-            <p class="tarjeta__descripcion">
+            <p class="etiqueta_seccion">⭐ Popular</p>
+            <p class="titulo_tarjeta">Boneless Box</p>
+            <p class="descripcion_tarjeta">
               Pedazos de pechuga empanizados bañados en tu salsa favorita.
             </p>
-            <p class="tarjeta__precio">$79</p>
+            <p class="precio_tarjeta">$79</p>
             <br />
-            <a href="#delivery" class="boton boton--primario"
+            <a href="#delivery" class="boton boton--destacado"
               >Pedir a domicilio</a
             >
           </article>
@@ -314,14 +310,14 @@
               loading="lazy"
               class="nosotros__imagen nosotros__imagen--secundaria"
             />
-            <div class="nosotros__dato">
+            <div class="nosotros__card">
               <b>10+</b>
               <span>años sirviendo</span>
             </div>
           </div>
         </figure>
 
-        <p class="etiqueta">¿Quiénes somos?</p>
+        <p class="etiqueta_seccion">¿Quiénes somos?</p>
         <h2>Fast food hecho con carácter</h2>
         <p>
           Bodrios nació con una obsesión: hacer la mejor burger del barrio. Sin
@@ -343,31 +339,31 @@
       <hr />
 
       <section id="horarios" class="horarios">
-        <p class="etiqueta">Horarios</p>
+        <p class="etiqueta_seccion">Horarios</p>
         <h2 class="horarios__subtitulo">
           Siempre listos<br />
-          <span class="horarios__subtitulo horarios__subtitulo--destacado"
+          <span class="horarios__subtitulo horarios__subtitulo--highlight"
             >para ti</span
           ><br />
         </h2>
 
-        <div class="horarios__lista">
-          <article class="horarios__item">
+        <div class="horarios__grid">
+          <article class="horario tarjeta-horario">
             <b>Lunes – Miércoles</b>
             <p>10:00 am – 10:00 pm</p>
           </article>
 
-          <article class="horarios__item">
+          <article class="horario tarjeta-horario">
             <b>Jueves – Viernes</b>
             <p>10:00 am – 11:00 pm</p>
           </article>
 
-          <article class="horarios__item">
+          <article class="horario tarjeta-horario">
             <b>Sábado</b>
             <p>9:00 am – 12:00 am</p>
           </article>
 
-          <article class="horarios__item">
+          <article class="horario tarjeta-horario">
             <b>Domingo</b>
             <p>9:00 am – 9:00 pm</p>
           </article>
@@ -383,11 +379,11 @@
           Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30
           minutos.
         </p>
-        <div class="delivery__acciones acciones acciones--centrado">
-          <a href="tel:6122126676" class="boton boton--primario"
+        <div class="delivery__acciones hero__acciones">
+          <a href="tel:6122126676" class="boton boton--destacado"
             >📞 Llama ahora</a
           >
-          <a href="https://wa.me/526122126676" class="boton boton--secundario"
+          <a href="https://wa.me/526122126676" class="boton boton--transparente"
             >💬 WhatsApp</a
           >
         </div>
@@ -398,7 +394,7 @@
     </main>
 
     <footer id="contacto" class="footer">
-      <section class="footer__seccion">
+      <section class="footer__section">
         <h3>Bodrios Fast Food</h3>
         <p>
           Comida rápida con sabor real. Ingredientes frescos y servicio sin
@@ -406,7 +402,7 @@
         </p>
       </section>
 
-      <section class="footer__seccion">
+      <section class="footer__section">
         <h4>Navegación</h4>
         <ul class="footer__lista">
           <li class="footer__item"><a href="#inicio">Inicio</a></li>
@@ -417,14 +413,14 @@
         </ul>
       </section>
 
-      <section class="footer__seccion">
+      <section class="footer__section">
         <h4>Contacto</h4>
         <p>📞 612 212 6676</p>
         <p>📧 hola@bodrios.com.mx</p>
         <p>📍 Ciudad de México</p>
       </section>
 
-      <section class="footer__seccion">
+      <section class="footer__section">
         <h4>Redes</h4>
         <ul class="footer__lista">
           <li class="footer__item"><a href="#">📘 Facebook</a></li>
@@ -436,7 +432,16 @@
       <hr />
       <p>© 2026 Bodrios Fast Food. Todos los derechos reservados.</p>
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+  const btnMenu = document.getElementById('btn-menu');
+  const menuNav = document.getElementById('menu-nav');
 
-    <script src="js/index.js"></script>
+  btnMenu.addEventListener('click', () => {
+    // Alterna la clase 'activo' que cambia el display de 'none' a 'block'
+    menuNav.classList.toggle('activo');
+  });
+});
+    </script>
   </body>
 </html>
