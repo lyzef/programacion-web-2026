@@ -53,3 +53,21 @@
     });
   });
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnMenu = document.getElementById('btn-menu');
+  const menuNav = document.getElementById('menu-nav');
+
+  if (btnMenu && menuNav) {
+    btnMenu.addEventListener('click', () => {
+      menuNav.classList.toggle('activo');
+    });
+
+    const enlacesMenu = menuNav.querySelectorAll('.navegacion__link');
+    enlacesMenu.forEach(enlace => {
+      enlace.addEventListener('click', () => {
+        menuNav.classList.remove('activo');
+      });
+    });
+  }
+});
