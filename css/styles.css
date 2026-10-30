@@ -744,6 +744,101 @@ main {
   margin: var(--espaciado-xl) 0 var(--espaciado-md);
 }
 
+/* CATÁLOGO DEL MENÚ */
+
+.pagina-menu .catalogo__titulo,
+.pagina-menu .producto__titulo {
+  color: var(--color-titulo);
+}
+
+.pagina-menu .catalogo__descripcion,
+.pagina-menu .producto__descripcion {
+  color: var(--color-texto-suave);
+}
+
+.pagina-menu .catalogo__etiqueta,
+.pagina-menu .producto__etiqueta {
+  background-color: var(--color-primario);
+  color: var(--color-bg-oscuro);
+}
+
+.pagina-menu .catalogo__lupa {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.pagina-menu .input-group-text {
+  color: var(--color-texto-suave);
+}
+
+.pagina-menu .catalogo__filtro {
+  --bs-btn-color: var(--color-texto-cuerpo);
+  --bs-btn-border-color: var(--color-borde-tarjeta);
+  --bs-btn-hover-color: var(--color-bg-oscuro);
+  --bs-btn-hover-bg: var(--color-primario-claro);
+  --bs-btn-hover-border-color: var(--color-primario);
+  --bs-btn-active-color: var(--color-bg-oscuro);
+  --bs-btn-active-bg: var(--color-primario);
+  --bs-btn-active-border-color: var(--color-primario);
+  --bs-btn-focus-shadow-rgb: 245, 158, 11;
+}
+
+.pagina-menu .catalogo__filtro.btn-warning {
+  --bs-btn-color: var(--color-bg-oscuro);
+  --bs-btn-bg: var(--color-primario);
+  --bs-btn-border-color: var(--color-primario);
+}
+
+.pagina-menu .catalogo__filtro.btn-outline-warning {
+  --bs-btn-color: var(--color-texto-cuerpo);
+  --bs-btn-border-color: var(--color-borde-tarjeta);
+}
+
+.pagina-menu .producto .card {
+  overflow: hidden;
+  background-color: var(--color-fondo-tarjeta);
+  border-color: var(--color-borde-tarjeta);
+  color: var(--color-texto-cuerpo);
+}
+
+.pagina-menu .producto__imagen {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background-color: var(--color-bg-tarjeta-oscuro);
+}
+
+.pagina-menu .producto__imagen--bebida {
+  display: grid;
+  place-items: center;
+  color: var(--color-primario);
+  font-size: clamp(4rem, 6vw, 6rem);
+}
+
+.pagina-menu .producto__titulo {
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem);
+}
+
+.pagina-menu .producto__precio {
+  margin-bottom: 0;
+  color: var(--color-primario-oscuro);
+  font-size: 1.3rem;
+  font-weight: var(--peso-titulo);
+}
+
+.pagina-menu .footer {
+  display: block;
+  padding: var(--espaciado-xl) 0 var(--espaciado-md);
+}
+
+.pagina-menu #contacto {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 /* 17. MEDIA QUERIES */
 
 /* 17.1 Tablet (601px – 1023px) */
