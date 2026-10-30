@@ -26,48 +26,46 @@
     />
   </head>
   <body>
-    <script src="js/index.js"></script>
+   <script src="js/index.js"></script>
+      <header class="encabezado">
+    <a class="encabezado__marca" href="#inicio" aria-label="Carlos JR, inicio">
+      <span class="encabezado__icono" aria-hidden="true">🍔</span>
+      <span class="encabezado__texto">
+        <strong class="encabezado__nombre">Carlos Jr</strong>
+       <small class="encabezado__eslogan">Comida rapida</small>
+      </span>
+    </a>
 
-    <header class="encabezado">
-      <a
-        class="encabezado__marca"
-        href="#inicio"
-        aria-label="Carlos JR, inicio"
-      >
-        <span class="encabezado__icono" aria-hidden="true">🍔</span>
-        <span class="encabezado__texto">
-          <strong class="encabezado__nombre">Carlos Jr</strong>
-          <small class="encabezado__eslogan">Comida rapida</small>
-        </span>
-      </a>
+    <button id="btn-menu" class="encabezado__hamburguesa" aria-label="Abrir menú">
+      ☰
+    </button>
 
-      <nav
-        class="encabezado__nav navegacion"
-        aria-label="Barra de navegacion principal"
-      >
-        <ul class="navegacion__lista">
-          <li class="navegacion__item">
-            <a class="navegacion__link" href="#inicio">Inicio</a>
-          </li>
-          <li class="navegacion__item">
-            <a class="navegacion__link" href="#menu">Menú</a>
-          </li>
-          <li class="navegacion__item">
-            <a class="navegacion__link" href="#promociones">Promociones</a>
-          </li>
-          <li class="navegacion__item">
-            <a class="navegacion__link" href="#nosotros">Nosotros</a>
-          </li>
-          <li class="navegacion__item">
-            <a class="navegacion__link" href="#horarios">Horarios</a>
-          </li>
-        </ul>
-      </nav>
+    <nav
+      id="menu-nav"
+      class="encabezado__nav navegacion"
+      aria-label="Barra de navegacion principal"
+    >
+      <ul class="navegacion__lista">
+        <li class="navegacion__item">
+          <a class="navegacion__link" href="#inicio">Inicio</a>
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__link" href="#menu">Menú</a>
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__link" href="#promociones">Promociones</a>
+       </li>
+       <li class="navegacion__item">
+         <a class="navegacion__link" href="#nosotros">Nosotros</a>
+        </li>
+        <li class="navegacion__item">
+          <a class="navegacion__link" href="#horarios">Horarios</a>
+        </li>
+      </ul>
+    </nav>
 
-      <a class="encabezado__pedido boton boton--primario" href="#delivery"
-        >Entrar</a
-      >
-    </header>
+   <a class="encabezado__pedido boton boton--primario" href="#delivery">Entrar</a>
+  </header>
 
     <main>
       <section id="inicio" class="hero">
