@@ -1,146 +1,279 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Crear cuenta - Don bodrio Restaurant</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="author"
       content="Miguel Angel Bautista Ortega, Dereck Hernández Sandoval, Carlos Alberto Camargo Montoya"
     />
-    <meta name="description" content="Formulario de registro de Bodrios Fast Food" />
-  </head>
-  <body>
-    <img
-      src="burger.png"
-      srcset="assets/images/inicio/burger-480w.png 480w, assets/images/inicio/burger-768w.png 768w, assets/images/inicio/burger-1024w.png 1024w, assets/images/inicio/burger-1280w.png 1280w"
-      sizes="35vw"
-      alt=""
+    <meta
+      name="description"
+      content="Crea tu cuenta en Carlos JR y pide tus hamburguesas favoritas a domicilio."
     />
+    <title>Crear cuenta - Carlos JR</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/registro.css" />
+  </head>
+  <body class="pagina-registro">
+    <header class="encabezado">
+      <a
+        class="encabezado__marca"
+        href="../index.html#inicio"
+        aria-label="Carlos JR, inicio"
+      >
+        <span class="encabezado__icono" aria-hidden="true">🍔</span>
+        <span class="encabezado__texto">
+          <strong class="encabezado__nombre">Carlos JR</strong>
+          <small class="encabezado__eslogan">FAST FOOD DE CALIDAD</small>
+        </span>
+      </a>
+      <a class="encabezado__pedido boton boton--primario" href="menu.html">
+        Volver al menú
+      </a>
+    </header>
 
-    <div>
-      <header>
-        <h3>🍔 Bodrios Fast Food</h3>
-        <nav aria-label="Barra de navegacion principal">
-          <ul>
-            <li><a href="../index.html">← Volver al inicio</a></li>
-          </ul>
-        </nav>
-      </header>
+    <main class="registro-main">
+      <div class="container-fluid registro-container">
+        <div class="row g-0 registro-layout">
+          <section
+            class="col-lg-6 order-2 registro-formulario"
+            aria-labelledby="registro-titulo"
+          >
+            <div class="registro-formulario__contenido">
+              <span class="badge rounded-pill registro-etiqueta mb-3"
+                >¡Únete a Carlos JR!</span
+              >
+              <h1 id="registro-titulo" class="registro-titulo">
+                ¡Crea tu cuenta!
+              </h1>
+              <p class="registro-descripcion">
+                Regístrate para pedir a domicilio tus hamburguesas favoritas con
+                promociones exclusivas.
+              </p>
 
-      <main>
-        <section id="registro">
-          <h1>Crear mi cuenta</h1>
+              <form
+                id="form-registro"
+                action="#"
+                method="post"
+                class="row g-3"
+                novalidate
+              >
+                <div class="col-12">
+                  <label class="form-label" for="nombre">Nombre completo</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    autocomplete="name"
+                    minlength="3"
+                    placeholder="Ej. Juan Pérez"
+                    aria-describedby="nombre-hint nombre-error"
+                    required
+                  />
+                  <div id="nombre-hint" class="form-text">
+                    Mínimo 3 caracteres.
+                  </div>
+                  <span
+                    id="nombre-error"
+                    class="error-campo"
+                    data-error-para="nombre"
+                    aria-live="polite"
+                  ></span>
+                </div>
 
-          <form action="#" method="post" novalidate>
-            <div>
-              <label for="nombre">Nombre completo</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                autocomplete="name"
-                aria-describedby="nombre-hint"
-                required
-              />
-              <small id="nombre-hint">Ingresa tu nombre y apellidos.</small>
+                <div class="col-12">
+                  <label class="form-label" for="correo"
+                    >Correo electrónico</label
+                  >
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    autocomplete="email"
+                    placeholder="tu@correo.com"
+                    aria-describedby="correo-error"
+                    required
+                  />
+                  <span
+                    id="correo-error"
+                    class="error-campo"
+                    data-error-para="correo"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="telefono"
+                    >Teléfono móvil</label
+                  >
+                  <input
+                    class="form-control"
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    autocomplete="tel"
+                    inputmode="numeric"
+                    pattern="[0-9]{10}"
+                    placeholder="Ej. 5512345678"
+                    aria-describedby="telefono-hint telefono-error"
+                    required
+                  />
+                  <div id="telefono-hint" class="form-text">
+                    10 dígitos numéricos.
+                  </div>
+                  <span
+                    id="telefono-error"
+                    class="error-campo"
+                    data-error-para="telefono"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="password">Contraseña</label>
+                  <input
+                    class="form-control"
+                    type="password"
+                    id="password"
+                    name="password"
+                    minlength="6"
+                    pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}"
+                    autocomplete="new-password"
+                    aria-describedby="password-hint password-error"
+                    required
+                  />
+                  <div id="password-hint" class="form-text">
+                    Mínimo 6 caracteres, una mayúscula y un número.
+                  </div>
+                  <span
+                    id="password-error"
+                    class="error-campo"
+                    data-error-para="password"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="confirmar-password"
+                    >Confirmar contraseña</label
+                  >
+                  <input
+                    class="form-control"
+                    type="password"
+                    id="confirmar-password"
+                    name="confirmar_password"
+                    minlength="6"
+                    autocomplete="new-password"
+                    aria-describedby="confirmar-password-hint confirmar-password-error"
+                    required
+                  />
+                  <div id="confirmar-password-hint" class="form-text">
+                    Ingresa la misma contraseña que elegiste.
+                  </div>
+                  <span
+                    id="confirmar-password-error"
+                    class="error-campo"
+                    data-error-para="confirmar_password"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="terminos"
+                      name="terminos"
+                      aria-describedby="terminos-error"
+                      required
+                    />
+                    <label class="form-check-label" for="terminos">
+                      Acepto los
+                      <a href="terminos.html"
+                        >Términos y Condiciones del servicio</a
+                      >.
+                    </label>
+                    <span
+                        id="terminos-error"
+                        class="error-campo"
+                        data-error-para="terminos"
+                        aria-live="polite"
+                    ></span>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="privacidad"
+                      name="privacidad"
+                      aria-describedby="privacidad-error"
+                      required
+                    />
+                    <label class="form-check-label" for="privacidad">
+                      Acepto la
+                      <a href="privacidad.html"
+                        >Política de Privacidad de datos</a
+                      >.
+                    </label>
+                    <span
+                        id="privacidad-error"
+                        class="error-campo"
+                        data-error-para="privacidad"
+                        aria-live="polite"
+                    ></span>
+                  </div>
+                </div>
+
+                <div
+                  id="registro-estado"
+                  class="col-12 registro-estado"
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></div>
+
+                <div class="col-12">
+                  <button class="btn registro-boton w-100" type="submit">
+                    Crear cuenta
+                  </button>
+                </div>
+              </form>
+
+              <p class="registro-login mb-0">
+                ¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a>
+              </p>
             </div>
+          </section>
 
-            <div>
-              <label for="correo">Correo electrónico</label>
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                autocomplete="email"
-                aria-describedby="correo-hint"
-                required
-              />
-              <small id="correo-hint">Usaremos este correo para confirmar tu cuenta.</small>
+          <aside
+            class="col-lg-6 order-1 registro-hero"
+            aria-labelledby="registro-hero-titulo"
+          >
+            <div class="registro-hero__contenido">
+              <p class="badge rounded-pill registro-etiqueta mb-3">
+                Comida de la mas alta calidad 😮
+              </p>
+              <h2 id="registro-hero-titulo" class="registro-hero__titulo">
+                El sabor que estabas esperando
+              </h2>
+              <p class="registro-hero__descripcion">
+                Crea tu cuenta y pide a domicilio con un solo clic.
+              </p>
             </div>
-
-            <div>
-              <label for="telefono">Número de teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                autocomplete="tel"
-                pattern="[0-9]{10}"
-                aria-describedby="telefono-hint"
-                required
-              />
-              <small id="telefono-hint">10 dígitos, sin espacios ni guiones.</small>
-            </div>
-
-            <div>
-              <label for="genero">Género</label>
-              <select id="genero" name="genero" required>
-                <option value="" selected disabled>Selecciona una opción</option>
-                <option value="femenino">Femenino</option>
-                <option value="masculino">Masculino</option>
-                <option value="otro">Otro</option>
-                <option value="no-decir">Prefiero no decir</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="password">Contraseña</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                minlength="5"
-                pattern="(?=.*[A-Z]).{5,}"
-                autocomplete="new-password"
-                aria-describedby="password-hint"
-                required
-              />
-              <small id="password-hint">Mínimo 5 caracteres y 1 letra mayúscula.</small>
-            </div>
-
-            <div>
-              <label for="confirmar-password">Confirmar contraseña</label>
-              <input
-                type="password"
-                id="confirmar-password"
-                name="confirmar_password"
-                minlength="5"
-                autocomplete="new-password"
-                aria-describedby="confirmar-password-hint"
-                required
-              />
-              <small id="confirmar-password-hint">Debe coincidir con la contraseña.</small>
-            </div>
-
-            <fieldset>
-              <legend>Términos y privacidad</legend>
-
-              <div>
-                <input type="checkbox" id="terminos" name="terminos" required />
-                <label for="terminos"
-                  >Acepto los <a href="terminos.html">Términos y condiciones</a></label
-                >
-              </div>
-
-              <div>
-                <input type="checkbox" id="privacidad" name="privacidad" required />
-                <label for="privacidad"
-                  >He leído la <a href="privacidad.html">Política de privacidad</a></label
-                >
-              </div>
-            </fieldset>
-
-            <button type="submit">Crear mi cuenta</button>
-          </form>
-
-          <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
-        </section>
-      </main>
-
-      <footer>
-        <p>© 2026 Bodrios Fast Food. Todos los derechos reservados.</p>
-      </footer>
-    </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="../js/registro/main.js"></script>
   </body>
 </html>
