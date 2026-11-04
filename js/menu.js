@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+export function inicializarMenu() {
   const productos = Array.from(
     document.querySelectorAll(".producto[data-categoria]"),
   );
@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const busqueda = document.getElementById("busqueda-menu");
   const mensajeVacio = document.getElementById("menu-sin-resultados");
+  if (!busqueda || !mensajeVacio) return;
+
   let categoriaActiva = "todas";
 
   const normalizar = (texto) =>
@@ -51,4 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   busqueda.addEventListener("input", actualizarProductos);
-});
+}
