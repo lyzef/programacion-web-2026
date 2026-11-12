@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/registro.css" />
   </head>
-  <body class="pagina-registro">
+  <body class="registro">
     <header class="encabezado">
       <a
         class="encabezado__marca"
@@ -39,21 +39,24 @@
       </a>
     </header>
 
-    <main class="registro-main">
-      <div class="container-fluid registro-container">
-        <div class="row g-0 registro-layout">
+    <main class="registro__main">
+      <div class="container-fluid registro__container">
+        <div class="row g-0 registro__layout">
           <section
             class="col-lg-6 order-2 registro-formulario"
-            aria-labelledby="registro-titulo"
+            aria-labelledby="registro-formulario-titulo"
           >
             <div class="registro-formulario__contenido">
-              <span class="badge rounded-pill registro-etiqueta mb-3"
+              <span class="badge rounded-pill registro-formulario__etiqueta mb-3"
                 >¡Únete a Carlos JR!</span
               >
-              <h1 id="registro-titulo" class="registro-titulo">
+              <h1
+                id="registro-formulario-titulo"
+                class="registro-formulario__titulo"
+              >
                 ¡Crea tu cuenta!
               </h1>
-              <p class="registro-descripcion">
+              <p class="registro-formulario__descripcion">
                 Regístrate para pedir a domicilio tus hamburguesas favoritas con
                 promociones exclusivas.
               </p>
@@ -83,7 +86,7 @@
                   </div>
                   <span
                     id="nombre-error"
-                    class="error-campo"
+                    class="registro-formulario__error"
                     data-error-para="nombre"
                     aria-live="polite"
                   ></span>
@@ -105,7 +108,7 @@
                   />
                   <span
                     id="correo-error"
-                    class="error-campo"
+                    class="registro-formulario__error"
                     data-error-para="correo"
                     aria-live="polite"
                   ></span>
@@ -132,7 +135,7 @@
                   </div>
                   <span
                     id="telefono-error"
-                    class="error-campo"
+                    class="registro-formulario__error"
                     data-error-para="telefono"
                     aria-live="polite"
                   ></span>
@@ -156,7 +159,7 @@
                   </div>
                   <span
                     id="password-error"
-                    class="error-campo"
+                    class="registro-formulario__error"
                     data-error-para="password"
                     aria-live="polite"
                   ></span>
@@ -181,7 +184,7 @@
                   </div>
                   <span
                     id="confirmar-password-error"
-                    class="error-campo"
+                    class="registro-formulario__error"
                     data-error-para="confirmar_password"
                     aria-live="polite"
                   ></span>
@@ -205,7 +208,7 @@
                     </label>
                     <span
                         id="terminos-error"
-                        class="error-campo"
+                        class="registro-formulario__error"
                         data-error-para="terminos"
                         aria-live="polite"
                     ></span>
@@ -227,7 +230,7 @@
                     </label>
                     <span
                         id="privacidad-error"
-                        class="error-campo"
+                        class="registro-formulario__error"
                         data-error-para="privacidad"
                         aria-live="polite"
                     ></span>
@@ -235,21 +238,24 @@
                 </div>
 
                 <div
-                  id="registro-estado"
-                  class="col-12 registro-estado"
+                  id="registro-formulario-estado"
+                  class="col-12 registro-formulario__estado"
                   role="status"
                   aria-live="polite"
                   hidden
                 ></div>
 
                 <div class="col-12">
-                  <button class="btn registro-boton w-100" type="submit">
+                  <button
+                    class="btn registro-formulario__boton w-100"
+                    type="submit"
+                  >
                     Crear cuenta
                   </button>
                 </div>
               </form>
 
-              <p class="registro-login mb-0">
+              <p class="registro-formulario__login mb-0">
                 ¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a>
               </p>
             </div>
@@ -260,7 +266,7 @@
             aria-labelledby="registro-hero-titulo"
           >
             <div class="registro-hero__contenido">
-              <p class="badge rounded-pill registro-etiqueta mb-3">
+              <p class="badge rounded-pill registro-hero__etiqueta mb-3">
                 Comida de la mas alta calidad 😮
               </p>
               <h2 id="registro-hero-titulo" class="registro-hero__titulo">

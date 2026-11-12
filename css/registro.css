@@ -1,28 +1,28 @@
-.pagina-registro {
+.registro {
   display: block;
   min-height: 100vh;
   background-color: var(--color-blanco-puro);
 }
 
-.pagina-registro .encabezado {
+.registro .encabezado {
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
-.pagina-registro .encabezado__eslogan {
+.registro .encabezado__eslogan {
   font-size: 0.55rem;
 }
 
-.registro-main {
+.registro__main {
   display: block;
   min-height: calc(100vh - 4.75rem);
 }
 
-.registro-container {
+.registro__container {
   max-width: none;
   padding: 0;
 }
 
-.registro-layout {
+.registro__layout {
   align-items: stretch;
   min-height: 100vh;
   background-color: var(--color-blanco-puro);
@@ -40,20 +40,21 @@
   margin: 0 auto;
 }
 
-.registro-etiqueta {
+.registro-formulario__etiqueta,
+.registro-hero__etiqueta {
   background-color: var(--color-primario);
   color: var(--color-bg-oscuro);
   font-weight: var(--peso-titulo);
 }
 
-.registro-titulo {
+.registro-formulario__titulo {
   margin-bottom: 0.5rem;
   color: var(--color-bg-oscuro);
   font-size: clamp(1.8rem, 1.4rem + 1vw, 2.4rem);
   font-weight: var(--peso-titulo);
 }
 
-.registro-descripcion {
+.registro-formulario__descripcion {
   margin-bottom: 1.5rem;
   color: var(--color-texto-secundario);
 }
@@ -85,25 +86,25 @@
   box-shadow: 0 0 0 0.25rem rgb(176 42 55 / 20%);
 }
 
-.error-campo:not([hidden]) {
+.registro-formulario__error:not([hidden]) {
   display: block;
   margin-top: 0.3rem;
   color: #b02a37;
   font-size: 0.875rem;
 }
 
-.registro-estado {
+.registro-formulario__estado {
   margin: 0;
   padding: 0.75rem 1rem;
   border-radius: var(--radio-pequeno);
 }
 
-.registro-estado--error {
+.registro-formulario__estado--error {
   background-color: #f8d7da;
   color: #842029;
 }
 
-.registro-estado--exito {
+.registro-formulario__estado--exito {
   background-color: #d1e7dd;
   color: #0f5132;
 }
@@ -126,13 +127,12 @@
   box-shadow: 0 0 0 0.25rem rgb(245 158 11 / 20%);
 }
 
-.registro-formulario a,
-.registro-login a {
+.registro-formulario a {
   color: #9a5a00;
   font-weight: var(--peso-titulo);
 }
 
-.registro-boton {
+.registro-formulario__boton {
   min-height: 3rem;
   border: 0;
   border-radius: var(--radio-pildora);
@@ -144,14 +144,14 @@
     translate 160ms ease;
 }
 
-.registro-boton:hover,
-.registro-boton:focus-visible {
+.registro-formulario__boton:hover,
+.registro-formulario__boton:focus-visible {
   background-color: var(--color-primario-oscuro);
   color: var(--color-bg-oscuro);
   translate: 0 -2px;
 }
 
-.registro-login {
+.registro-formulario__login {
   margin-top: 1.25rem;
   text-align: center;
   color: var(--color-texto-secundario);
@@ -201,7 +201,7 @@
 }
 
 @media (max-width: 991.98px) {
-  .registro-main {
+  .registro__main {
     min-height: auto;
   }
 
@@ -213,11 +213,11 @@
 }
 
 @media (max-width: 575.98px) {
-  .pagina-registro .encabezado {
+  .registro .encabezado {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .pagina-registro .encabezado__pedido {
+  .registro .encabezado__pedido {
     grid-column: 2;
     grid-row: 1;
     padding: 0.55rem 0.9rem;

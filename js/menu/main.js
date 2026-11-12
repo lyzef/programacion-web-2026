@@ -1,3 +1,7 @@
+import { inicializarNavegacion } from "../compartido/navegacion.js";
+
+inicializarNavegacion();
+
 export function inicializarMenu() {
   const productos = Array.from(
     document.querySelectorAll(".producto[data-categoria]"),
@@ -17,6 +21,20 @@ export function inicializarMenu() {
       .replace(/[\u0300-\u036f]/g, "")
       .toLocaleLowerCase("es");
 
+  const textosProductos = new Map(
+    productos.map((producto) => [
+      producto,
+      [
+        ".producto__etiqueta",
+        ".producto__titulo",
+        ".producto__descripcion",
+        ".producto__precio",
+      ]
+        .map((selector) => producto.querySelector(selector)?.textContent ?? "")
+        .join(" "),
+    ]),
+  );
+
   const actualizarProductos = () => {
     const consulta = normalizar(busqueda.value.trim());
     let visibles = 0;
@@ -25,9 +43,9 @@ export function inicializarMenu() {
       const coincideCategoria =
         categoriaActiva === "todas" ||
         producto.dataset.categoria === categoriaActiva;
-      const coincideBusqueda = normalizar(producto.textContent).includes(
-        consulta,
-      );
+      const coincideBusqueda = normalizar(
+        textosProductos.get(producto) ?? "",
+      ).includes(consulta);
       const mostrar = coincideCategoria && coincideBusqueda;
 
       producto.hidden = !mostrar;
@@ -54,3 +72,5 @@ export function inicializarMenu() {
 
   busqueda.addEventListener("input", actualizarProductos);
 }
+
+inicializarMenu();
