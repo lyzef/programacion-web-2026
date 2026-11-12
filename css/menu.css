@@ -190,13 +190,6 @@
   object-fit: cover;
 }
 
-.producto__imagen--bebida {
-  display: grid;
-  place-items: center;
-  color: var(--color-primario);
-  font-size: clamp(4rem, 6vw, 6rem);
-}
-
 .producto__etiqueta {
   position: absolute;
   top: 0.75rem;
