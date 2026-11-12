@@ -1,13 +1,16 @@
-export function inicializarMenu() {
-  const productos = Array.from(
-    document.querySelectorAll(".producto[data-categoria]"),
-  );
+import { inicializarNavegacion } from "../compartido/navegacion.js";
+import { cargarMenu } from "./productos.js";
+
+inicializarNavegacion();
+
+export async function inicializarMenu() {
   const filtros = Array.from(
     document.querySelectorAll(".catalogo__filtro[data-filtro]"),
   );
   const busqueda = document.getElementById("busqueda-menu");
   const mensajeVacio = document.getElementById("menu-sin-resultados");
-  if (!busqueda || !mensajeVacio) return;
+  const contenedor = document.getElementById("productos-menu");
+  if (!busqueda || !mensajeVacio || !contenedor) return;
 
   let categoriaActiva = "todas";
 
@@ -19,15 +22,24 @@ export function inicializarMenu() {
 
   const actualizarProductos = () => {
     const consulta = normalizar(busqueda.value.trim());
+    const productos = Array.from(
+      contenedor.querySelectorAll(".producto[data-categoria]"),
+    );
     let visibles = 0;
 
     productos.forEach((producto) => {
+      const textoProducto = [
+        ".producto__etiqueta",
+        ".producto__titulo",
+        ".producto__descripcion",
+        ".producto__precio",
+      ]
+        .map((selector) => producto.querySelector(selector)?.textContent ?? "")
+        .join(" ");
       const coincideCategoria =
         categoriaActiva === "todas" ||
         producto.dataset.categoria === categoriaActiva;
-      const coincideBusqueda = normalizar(producto.textContent).includes(
-        consulta,
-      );
+      const coincideBusqueda = normalizar(textoProducto).includes(consulta);
       const mostrar = coincideCategoria && coincideBusqueda;
 
       producto.hidden = !mostrar;
@@ -53,4 +65,7 @@ export function inicializarMenu() {
   });
 
   busqueda.addEventListener("input", actualizarProductos);
+  if (await cargarMenu()) actualizarProductos();
 }
+
+inicializarMenu();

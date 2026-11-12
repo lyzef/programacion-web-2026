@@ -10,10 +10,13 @@ export function limpiarErrores(formulario) {
     campo.classList.remove("is-invalid");
   });
 
-  const estado = formulario.querySelector("#registro-estado");
+  const estado = formulario.querySelector("#registro-formulario-estado");
   estado.textContent = "";
   estado.hidden = true;
-  estado.classList.remove("registro-estado--error", "registro-estado--exito");
+  estado.classList.remove(
+    "registro-formulario__estado--error",
+    "registro-formulario__estado--exito",
+  );
 }
 
 export function mostrarErrores(formulario) {
@@ -34,9 +37,15 @@ export function mostrarErrores(formulario) {
 }
 
 export function mostrarEstado(formulario, mensaje, tipo) {
-  const estado = formulario.querySelector("#registro-estado");
+  const estado = formulario.querySelector("#registro-formulario-estado");
   estado.textContent = mensaje;
   estado.hidden = false;
-  estado.classList.toggle("registro-estado--error", tipo === "error");
-  estado.classList.toggle("registro-estado--exito", tipo === "exito");
+  estado.classList.toggle(
+    "registro-formulario__estado--error",
+    tipo === "error",
+  );
+  estado.classList.toggle(
+    "registro-formulario__estado--exito",
+    tipo === "exito",
+  );
 }
