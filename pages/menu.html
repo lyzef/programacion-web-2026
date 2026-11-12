@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -80,9 +81,33 @@
         </ul>
       </nav>
 
-      <a class="encabezado__pedido boton boton--primario" href="registro.html"
-        >Entrar</a
-      >
+      <div class="encabezado__acciones">
+        <a
+          class="encabezado__pedido"
+          href="registro.html"
+        >
+          Entrar
+        </a>
+        <button
+          class="encabezado__carrito"
+          type="button"
+          aria-label="Mi pedido, 0 productos"
+        >
+          <svg
+            class="encabezado__carrito-icono"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H6"
+            />
+            <circle cx="10" cy="19" r="1.2" />
+            <circle cx="18" cy="19" r="1.2" />
+          </svg>
+          <span>Mi pedido</span>
+          <span class="encabezado__carrito-cantidad">0</span>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -90,22 +115,18 @@
         class="catalogo container py-5"
         aria-labelledby="catalogo-titulo"
       >
-        <header class="catalogo__encabezado text-center mb-4">
-          <p class="mb-2">
-            <span class="badge rounded-pill catalogo__etiqueta"
-              >Hecho para disfrutar</span
-            >
-          </p>
-          <h1 id="catalogo-titulo" class="catalogo__titulo display-4 fw-bold">
-            Nuestro menú
-          </h1>
-          <p class="catalogo__descripcion mb-0">
-            Encuentra tus hamburguesas, combos y acompañamientos favoritos.
-          </p>
-        </header>
+        <div class="catalogo__barra">
+          <header class="catalogo__encabezado">
+            <p class="catalogo__eyebrow">CATÁLOGO</p>
+            <h1 id="catalogo-titulo" class="catalogo__titulo">
+              Nuestro menú
+            </h1>
+            <p class="catalogo__descripcion">
+              Encuentra tus hamburguesas, combos y acompañamientos favoritos.
+            </p>
+          </header>
 
-        <div class="row g-3 justify-content-center mb-4">
-          <div class="col-12 col-lg-6">
+          <div class="catalogo__busqueda">
             <label class="visually-hidden" for="busqueda-menu"
               >Buscar productos</label
             >
@@ -125,54 +146,52 @@
               />
             </div>
           </div>
+        </div>
 
-          <div class="col-12">
-            <div
-              class="catalogo__filtros d-flex flex-wrap justify-content-center gap-2"
-              aria-label="Filtrar por categoría"
-            >
-              <button
-                class="catalogo__filtro btn btn-warning"
-                type="button"
-                data-filtro="todas"
-                aria-pressed="true"
-              >
-                Todas
-              </button>
-              <button
-                class="catalogo__filtro btn btn-outline-warning"
-                type="button"
-                data-filtro="hamburguesas"
-                aria-pressed="false"
-              >
-                Hamburguesas
-              </button>
-              <button
-                class="catalogo__filtro btn btn-outline-warning"
-                type="button"
-                data-filtro="combos"
-                aria-pressed="false"
-              >
-                Combos
-              </button>
-              <button
-                class="catalogo__filtro btn btn-outline-warning"
-                type="button"
-                data-filtro="snacks"
-                aria-pressed="false"
-              >
-                Snacks / Acompañamientos
-              </button>
-              <button
-                class="catalogo__filtro btn btn-outline-warning"
-                type="button"
-                data-filtro="bebidas"
-                aria-pressed="false"
-              >
-                Bebidas
-              </button>
-            </div>
-          </div>
+        <div
+          class="catalogo__filtros d-flex flex-wrap gap-2"
+          aria-label="Filtrar por categoría"
+        >
+          <button
+            class="catalogo__filtro btn btn-warning"
+            type="button"
+            data-filtro="todas"
+            aria-pressed="true"
+          >
+            Todas
+          </button>
+          <button
+            class="catalogo__filtro btn btn-outline-warning"
+            type="button"
+            data-filtro="hamburguesas"
+            aria-pressed="false"
+          >
+            Hamburguesas
+          </button>
+          <button
+            class="catalogo__filtro btn btn-outline-warning"
+            type="button"
+            data-filtro="combos"
+            aria-pressed="false"
+          >
+            Combos
+          </button>
+          <button
+            class="catalogo__filtro btn btn-outline-warning"
+            type="button"
+            data-filtro="snacks"
+            aria-pressed="false"
+          >
+            Snacks / Acompañamientos
+          </button>
+          <button
+            class="catalogo__filtro btn btn-outline-warning"
+            type="button"
+            data-filtro="bebidas"
+            aria-pressed="false"
+          >
+            Bebidas
+          </button>
         </div>
 
         <div
@@ -180,7 +199,7 @@
           class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4"
         >
           <article class="col producto" data-categoria="hamburguesas">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/clasico-con-papas-2.jpg"
@@ -208,7 +227,7 @@
           </article>
 
           <article class="col producto" data-categoria="hamburguesas">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/clasico-con-papas-2.jpg"
@@ -236,7 +255,7 @@
           </article>
 
           <article class="col producto" data-categoria="combos">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/clasica-con-papas.jpg"
@@ -264,7 +283,7 @@
           </article>
 
           <article class="col producto" data-categoria="combos">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/combo-familiar.png"
@@ -292,7 +311,7 @@
           </article>
 
           <article class="col producto" data-categoria="combos">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/combo-familiar.png"
@@ -320,7 +339,7 @@
           </article>
 
           <article class="col producto" data-categoria="snacks">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/papas-480w.webp"
@@ -348,7 +367,7 @@
           </article>
 
           <article class="col producto" data-categoria="snacks">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
             <img
               class="producto__imagen card-img-top"
               src="../assets/images/menu/papas-480w.webp"
@@ -376,7 +395,7 @@
           </article>
 
           <article class="col producto" data-categoria="bebidas">
-            <div class="card h-100">
+            <div class="card h-100 producto__tarjeta">
               <div
                 class="producto__imagen producto__imagen--bebida card-img-top"
                 role="img"
