@@ -5,6 +5,7 @@ import {
   validarPassword,
   validarTelefono,
 } from "./validators.js";
+import Swal from "../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js";
 import { limpiarErrores, mostrarErrores, mostrarEstado } from "./ui.js";
 
 const formulario = document.querySelector("#form-registro");
@@ -57,7 +58,21 @@ formulario.addEventListener("submit", (evento) => {
   const datos = Object.fromEntries(new FormData(formulario));
   mostrarEstado(
     formulario,
-    `¡Gracias, ${datos.nombre}! Tu cuenta se ha creado correctamente.`,
+    "¡Gracias, " + datos.nombre + "! Tu cuenta se ha creado correctamente.",
     "exito",
   );
+
+  Swal.fire({
+    icon: "success",
+    title: "¡Cuenta creada!",
+    text: "Gracias, " + datos.nombre + ". Tu cuenta se ha creado correctamente.",
+    confirmButtonText: "Ir al menú",
+    confirmButtonColor: "#fbbf24",
+  }).then(() => {
+    formulario.reset();
+    mostrarMensajes = false;
+    limpiarErrores(formulario);
+    window.location.href = "menu.html";
+  });
 });
+
