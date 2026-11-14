@@ -10,7 +10,8 @@ export async function inicializarMenu() {
   const busqueda = document.getElementById("busqueda-menu");
   const mensajeVacio = document.getElementById("menu-sin-resultados");
   const contenedor = document.getElementById("productos-menu");
-  if (!busqueda || !mensajeVacio || !contenedor) return;
+  const historial = document.getElementById("historial-busqueda");
+  if (!busqueda || !mensajeVacio || !contenedor || !historial) return;
 
   let categoriaActiva = "todas";
 
@@ -49,6 +50,61 @@ export async function inicializarMenu() {
     mensajeVacio.hidden = visibles > 0;
   };
 
+  const CLAVE_HISTORIAL = "historialBusquedasMenu";
+  const MAX_HISTORIAL = 5;
+
+  const leerHistorial = () => {
+    try {
+      const datos = JSON.parse(localStorage.getItem(CLAVE_HISTORIAL));
+      return Array.isArray(datos) ? datos : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const guardarHistorial = (lista) =>
+    localStorage.setItem(CLAVE_HISTORIAL, JSON.stringify(lista));
+
+  const mostrarHistorial = () => {
+    const lista = leerHistorial();
+    historial.replaceChildren();
+    if (lista.length === 0) return;
+
+    lista.forEach((termino) => {
+      const boton = document.createElement("button");
+      boton.type = "button";
+      boton.className = "btn btn-sm btn-outline-secondary";
+      boton.textContent = termino;
+      boton.addEventListener("click", () => {
+        busqueda.value = termino;
+        actualizarProductos();
+        registrarBusqueda(termino);
+      });
+      historial.append(boton);
+    });
+
+    const borrar = document.createElement("button");
+    borrar.type = "button";
+    borrar.className = "btn btn-sm btn-link text-danger";
+    borrar.textContent = "Borrar historial";
+    borrar.addEventListener("click", () => {
+      guardarHistorial([]);
+      mostrarHistorial();
+    });
+    historial.append(borrar);
+  };
+
+  const registrarBusqueda = (texto) => {
+    const termino = texto.trim();
+    if (!termino) return;
+    const lista = leerHistorial().filter(
+      (item) => normalizar(item) !== normalizar(termino),
+    );
+    lista.unshift(termino);
+    guardarHistorial(lista.slice(0, MAX_HISTORIAL));
+    mostrarHistorial();
+  };
+
   filtros.forEach((filtro) => {
     filtro.addEventListener("click", () => {
       categoriaActiva = filtro.dataset.filtro;
@@ -65,7 +121,8 @@ export async function inicializarMenu() {
   });
 
   busqueda.addEventListener("input", actualizarProductos);
+  busqueda.addEventListener("change", () => registrarBusqueda(busqueda.value));
+  mostrarHistorial();
   if (await cargarMenu()) actualizarProductos();
 }
-
 inicializarMenu();
