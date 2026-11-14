@@ -82,12 +82,7 @@
       </nav>
 
       <div class="encabezado__acciones">
-        <a
-          class="encabezado__pedido"
-          href="registro.html"
-        >
-          Entrar
-        </a>
+        <a class="encabezado__pedido" href="registro.html"> Entrar </a>
         <button
           class="encabezado__carrito"
           type="button"
@@ -118,9 +113,7 @@
         <div class="catalogo__barra">
           <header class="catalogo__encabezado">
             <p class="catalogo__eyebrow">CATÁLOGO</p>
-            <h1 id="catalogo-titulo" class="catalogo__titulo">
-              Nuestro menú
-            </h1>
+            <h1 id="catalogo-titulo" class="catalogo__titulo">Nuestro menú</h1>
             <p class="catalogo__descripcion">
               Encuentra tus hamburguesas, combos y acompañamientos favoritos.
             </p>
@@ -145,6 +138,11 @@
                 autocomplete="off"
               />
             </div>
+            <div
+              id="historial-busqueda"
+              class="d-flex flex-wrap align-items-center gap-2 mt-2"
+              aria-label="Historial de búsquedas"
+            ></div>
           </div>
         </div>
 
@@ -209,7 +207,11 @@
           aria-busy="true"
         ></div>
 
-        <p id="menu-sin-resultados" class="catalogo__vacio alert alert-light text-center" hidden>
+        <p
+          id="menu-sin-resultados"
+          class="catalogo__vacio alert alert-light text-center"
+          hidden
+        >
           No encontramos productos que coincidan con tu búsqueda.
         </p>
       </section>
