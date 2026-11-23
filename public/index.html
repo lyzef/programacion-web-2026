@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es">
+  <link
+    rel="canonical"
+    href="https://www.restaurante-don-bodrios-fast-food.com/inicio"
+  />
+  <head>
+    <title>Restaurante de Comida Rápida Carlos Jr</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="author"
+      content="Miguel Angel Bautista Ortega, Dereck Hernández Sandoval, Carlos Alberto Camargo Montoya"
+    />
+    <meta
+      name="description"
+      content="Esta es la Página del Restaurante Carlos Jr, donde servimos la mejor comida rápida de La Paz, Baja California Sur."
+    />
+    <meta name="keywords" content="restaurante, pollo, fast food" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="js/inicio/main.js"></script>
+  </head>
+  <body>
+    <header class="encabezado">
+      <a
+        class="encabezado__marca"
+        href="#inicio"
+        aria-label="Carlos JR, inicio"
+      >
+        <span class="encabezado__icono" aria-hidden="true">🍔</span>
+        <span class="encabezado__texto">
+          <strong class="encabezado__nombre">Carlos Jr</strong>
+          <small class="encabezado__eslogan">Comida rapida</small>
+        </span>
+      </a>
+
+      <button
+        id="btn-menu"
+        class="encabezado__hamburguesa"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="menu-nav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav
+        id="menu-nav"
+        class="encabezado__nav navegacion"
+        aria-label="Barra de navegacion principal"
+      >
+        <ul class="navegacion__lista">
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#inicio">Inicio</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="pages/menu.html">Menú</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#promociones">Promociones</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#nosotros">Nosotros</a>
+          </li>
+          <li class="navegacion__item">
+            <a class="navegacion__link" href="#horarios">Horarios</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a
+        class="encabezado__pedido boton boton--primario"
+        href="pages/registro.html"
+        >Entrar</a
+      >
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <h1 class="hero__titulo">
+          Rápido,<br />
+          <span class="hero__titulo hero__titulo--destacado">sabroso</span
+          ><br />
+          y sin esperas.
+        </h1>
+        <p id="subtitulo_header" class="hero__subtitulo">
+          Burgers jugosas, papas crujientes y combos que no te van a
+          decepcionar.
+        </p>
+        <!-- Imagen de fondo 
+        <img
+          src="assets/images/inicio/Imagen__Fondo-1280w.webp"
+          srcset="
+            assets/images/inicio/Imagen__Fondo-480w.webp   480w,
+            assets/images/inicio/Imagen__Fondo-768w.webp   768w,
+            assets/images/inicio/Imagen__Fondo-1024w.webp 1024w,
+            assets/images/inicio/Imagen__Fondo-1280w.webp 1280w
+          "
+          sizes="(max-width: 768px) 100vw, 768px"
+          width="1280"
+          height="801"
+          alt="Hamburguesa de fondo"
+        />
+        <img
+          src="assets/images/inicio/hamburguesa-circle.jpg"
+          width="281"
+          height="281"
+          loading="lazy"
+          alt="Hamburguesa llamativa enfrente de fondo de inicio"
+        />
+        <br />
+        -->
+        <div class="acciones">
+          <a href="pages/menu.html" class="boton boton--primario">Menú</a>
+          <a href="#delivery" class="boton boton--secundario">🛵 Pedir ahora</a>
+        </div>
+      </section>
+
+      <section id="promociones" class="promociones">
+        <p class="etiqueta">¡Ofertas vigentes!</p>
+        <h2 class="promociones__titulo">Promociones especiales</h2>
+
+        <div class="tarjetas">
+          <article class="tarjeta promociones__tarjeta">
+            <img
+              src="assets/images/menu/clasica-con-papas.jpg"
+              alt="combo duo especial"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">Lunes a Miércoles</p>
+            <p class="tarjeta__titulo">Duo Burger</p>
+            <p class="tarjeta__descripcion">
+              2 burgers con queso a un precio especial.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$129</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta promociones__tarjeta">
+            <img
+              src="assets/images/menu/clasica-con-papas.jpg"
+              alt="combo de hamburguesa clasica con papas"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">Martes y jueves</p>
+            <p class="tarjeta__titulo">2x1 en Burgers</p>
+            <p class="tarjeta__descripcion">Todos los martes y jueves.</p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$89</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta promociones__tarjeta">
+            <img
+              src="assets/images/menu/combo-familiar.png"
+              alt="combo familiar"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">Ahorra $69</p>
+            <p class="tarjeta__titulo">Combo Familiar</p>
+            <p class="tarjeta__descripcion">
+              4 burgers + 4 papas + 4 bebidas a un precio increíble.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$399</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta promociones__tarjeta">
+            <img
+              src="assets/images/menu/combo-familiar.png"
+              alt="combo pareja"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">Fin de semana</p>
+            <p class="tarjeta__titulo">Combo Pareja</p>
+            <p class="tarjeta__descripcion">
+              2 burgers + 2 papas grandes + 2 refrescos.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$219</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="favoritos" class="favoritos">
+        <p class="etiqueta">Lo más pedido</p>
+        <h2 class="favoritos__titulo">Nuestros favoritos</h2>
+
+        <div class="tarjetas">
+          <article class="tarjeta favoritos__tarjeta">
+            <img
+              src="assets/images/menu/clasico-con-papas-2.jpg"
+              alt="hamburguesa doble tocino"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">⭐ Popular</p>
+            <p class="tarjeta__titulo">Bacon Supreme</p>
+            <p class="tarjeta__descripcion">
+              Doble carne, tiras de tocino crujiente y salsa BBQ.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$85</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta favoritos__tarjeta">
+            <img
+              src="assets/images/menu/clasico-con-papas-2.jpg"
+              alt="hamburguesa clasica"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">⭐ Popular</p>
+            <p class="tarjeta__titulo">Bodrios classics</p>
+            <p class="tarjeta__descripcion">
+              Carne 200g, queso americano, lechuga, tomate y salsa especial.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$67</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta favoritos__tarjeta">
+            <img
+              src="assets/images/menu/papas-480w.webp"
+              alt="papas clasicas"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">⭐ Popular</p>
+            <p class="tarjeta__titulo">Papas Bodrios</p>
+            <p class="tarjeta__descripcion">
+              Papas crujientes con queso fundido y jalapeños al gusto.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$57</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+
+          <article class="tarjeta favoritos__tarjeta">
+            <img
+              src="assets/images/menu/papas-480w.webp"
+              alt="boneless de pollo"
+              width="320"
+              height="200"
+              loading="lazy"
+            />
+            <p class="etiqueta">⭐ Popular</p>
+            <p class="tarjeta__titulo">Boneless Box</p>
+            <p class="tarjeta__descripcion">
+              Pedazos de pechuga empanizados bañados en tu salsa favorita.
+            </p>
+            <div class="tarjeta__pie">
+              <p class="tarjeta__precio">$79</p>
+              <a href="#delivery" class="boton boton--primario">Pedir</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="nosotros" class="nosotros">
+        <figure class="nosotros__mosaico">
+          <img
+            src="assets/images/inicio/hamburguesa-mosaico.png"
+            alt="Hamburguesa con papas a la francesa crujientes"
+            width="400"
+            height="300"
+            loading="lazy"
+            class="nosotros__imagen nosotros__imagen--principal"
+          />
+
+          <div class="nosotros__columna">
+            <img
+              src="assets/images/inicio/hamburguesa-mosaico-2.png"
+              alt="Hamburguesa servida en caja"
+              width="150"
+              height="150"
+              loading="lazy"
+              class="nosotros__imagen nosotros__imagen--secundaria"
+            />
+            <div class="nosotros__dato">
+              <b>10+</b>
+              <span>años sirviendo</span>
+            </div>
+          </div>
+        </figure>
+
+        <p class="etiqueta">¿Quiénes somos?</p>
+        <h2>Fast food hecho con carácter</h2>
+        <p>
+          Bodrios nació con una obsesión: hacer la mejor burger del barrio. Sin
+          complicaciones, sin tiempos de espera eternos. Solo ingredientes
+          frescos, carne de calidad y mucho sabor.
+        </p>
+        <p>
+          Somos el lugar donde vienes cuando tienes hambre de verdad. Rápido,
+          sabroso y a un precio justo.
+        </p>
+
+        <ul class="nosotros__lista">
+          <li class="nosotros__item">🥩 Carne fresca</li>
+          <li class="nosotros__item">⚡ Servicio rápido</li>
+          <li class="nosotros__item">💛 Precio justo</li>
+        </ul>
+      </section>
+
+      <section id="horarios" class="horarios">
+        <p class="etiqueta">Horarios</p>
+        <h2 class="horarios__subtitulo">
+          Siempre listos<br />
+          <span class="horarios__subtitulo horarios__subtitulo--destacado"
+            >para ti</span
+          ><br />
+        </h2>
+
+        <div class="horarios__lista">
+          <article class="horarios__item">
+            <b>Lunes – Miércoles</b>
+            <p>10:00 am – 10:00 pm</p>
+          </article>
+
+          <article class="horarios__item">
+            <b>Jueves – Viernes</b>
+            <p>10:00 am – 11:00 pm</p>
+          </article>
+
+          <article class="horarios__item">
+            <b>Sábado</b>
+            <p>9:00 am – 12:00 am</p>
+          </article>
+
+          <article class="horarios__item">
+            <b>Domingo</b>
+            <p>9:00 am – 9:00 pm</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="delivery" class="delivery">
+        <p>🛵</p>
+        <h2>¡Lo llevamos a tu puerta!</h2>
+        <p>
+          Pide por teléfono o WhatsApp y recibe tu pedido en menos de 30
+          minutos.
+        </p>
+        <div class="delivery__acciones acciones acciones--centrado">
+          <a href="tel:6122126676" class="boton boton--primario"
+            >📞 Llama ahora</a
+          >
+          <a href="https://wa.me/526122126676" class="boton boton--secundario"
+            >💬 WhatsApp</a
+          >
+        </div>
+        <small>⚡ Entrega en 30 min</small>
+        <small>📋 Menú completo</small>
+        <small>🚫 Sin monto mínimo</small>
+      </section>
+    </main>
+
+    <footer id="contacto" class="footer">
+      <section class="footer__seccion">
+        <h3>Bodrios Fast Food</h3>
+        <p>
+          Comida rápida con sabor real. Ingredientes frescos y servicio sin
+          esperas.
+        </p>
+      </section>
+
+      <section class="footer__seccion">
+        <h4>Navegación</h4>
+        <ul class="footer__lista">
+          <li class="footer__item"><a href="#inicio">Inicio</a></li>
+          <li class="footer__item">
+            <a href="pages/menu.html">Menú</a>
+          </li>
+          <li class="footer__item"><a href="#promociones">Promociones</a></li>
+          <li class="footer__item"><a href="#nosotros">Nosotros</a></li>
+          <li class="footer__item"><a href="#horarios">Horarios</a></li>
+        </ul>
+      </section>
+
+      <section class="footer__seccion">
+        <h4>Contacto</h4>
+        <p>📞 612 212 6676</p>
+        <p>📧 hola@bodrios.com.mx</p>
+        <p>📍 Ciudad de México</p>
+      </section>
+
+      <section class="footer__seccion">
+        <h4>Redes</h4>
+        <ul class="footer__lista">
+          <li class="footer__item"><a href="#">📘 Facebook</a></li>
+          <li class="footer__item"><a href="#">📷 Instagram</a></li>
+          <li class="footer__item"><a href="#">🐦 Twitter</a></li>
+        </ul>
+      </section>
+
+      <p>© 2026 Bodrios Fast Food. Todos los derechos reservados.</p>
+    </footer>
+    <button
+      id="boton-tema"
+      class="boton-tema"
+      type="button"
+      aria-pressed="false"
+      aria-label="Activar modo oscuro"
+    >
+      🌙
+    </button>
+  </body>
+</html>
