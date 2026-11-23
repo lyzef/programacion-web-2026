@@ -5,7 +5,7 @@ import {
   validarPassword,
   validarTelefono,
 } from "./validators.js";
-import Swal from "../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js";
+import Swal from "../../../node_modules/sweetalert2/dist/sweetalert2.esm.all.js";
 import { limpiarErrores, mostrarErrores, mostrarEstado } from "./ui.js";
 
 const formulario = document.querySelector("#form-registro");
