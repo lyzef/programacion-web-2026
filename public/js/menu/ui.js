@@ -1,3 +1,10 @@
+const NOMBRES_CATEGORIA = {
+  hamburguesas: "Hamburguesas",
+  combos: "Combos",
+  snacks: "Snacks",
+  bebidas: "Bebidas",
+};
+
 function normalizar(texto) {
   return texto
     .normalize("NFD")
@@ -26,7 +33,8 @@ function crearTarjeta(platillo) {
 
   const etiqueta = document.createElement("span");
   etiqueta.className = "producto__etiqueta badge align-self-start";
-  etiqueta.textContent = platillo.etiqueta;
+  etiqueta.textContent =
+    NOMBRES_CATEGORIA[platillo.categoria] ?? platillo.categoria;
 
   const nombre = document.createElement("h2");
   nombre.className = "producto__titulo card-title";
@@ -57,7 +65,7 @@ function crearTarjeta(platillo) {
 }
 
 export function renderizarProductos(contenedor, productos) {
-  contenedor.append(...productos.map(crearTarjeta));
+  contenedor.replaceChildren(...productos.map(crearTarjeta));
 }
 
 export function mostrarEstadoMenu(estado, mensaje, tipo) {
@@ -102,9 +110,8 @@ export function actualizarProductosUI(
     const coincideCategoria =
       categoriaActiva === "todas" ||
       producto.dataset.categoria === categoriaActiva;
-    const coincideBusqueda = normalizar(textoProducto).includes(
-      busquedaNormalizada,
-    );
+    const coincideBusqueda =
+      normalizar(textoProducto).includes(busquedaNormalizada);
     const mostrar = coincideCategoria && coincideBusqueda;
 
     producto.hidden = !mostrar;

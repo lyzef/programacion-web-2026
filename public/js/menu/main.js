@@ -1,6 +1,6 @@
 import { inicializarNavegacion } from "../compartido/navegacion.js";
 import { guardarStorage, leerStorage } from "../compartido/storage.js";
-import { obtenerProductos } from "./productos.js";
+import { crearPlatillo, obtenerProductos } from "./productos.js";
 import {
   actualizarFiltrosUI,
   actualizarProductosUI,
@@ -47,8 +47,7 @@ export async function inicializarMenu() {
     return Array.isArray(datos) ? datos : [];
   };
 
-  const guardarHistorial = (lista) =>
-    guardarStorage(CLAVE_HISTORIAL, lista);
+  const guardarHistorial = (lista) => guardarStorage(CLAVE_HISTORIAL, lista);
 
   const mostrarHistorial = () =>
     renderizarHistorialUI(
@@ -84,10 +83,48 @@ export async function inicializarMenu() {
     });
   });
 
+  const formulario = document.getElementById("form-platillo");
+  const mensajeFormulario = document.getElementById("form-platillo-mensaje");
+  if (formulario && mensajeFormulario) {
+    formulario.addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+      const boton = formulario.querySelector("button[type='submit']");
+      const datos = Object.fromEntries(new FormData(formulario));
+      datos.precio = Number(datos.precio);
+
+      boton.disabled = true;
+      try {
+        const platillo = await crearPlatillo(datos);
+        formulario.reset();
+        mostrarMensajeFormulario(
+          mensajeFormulario,
+          `"${platillo.nombre}" se agregó al menú.`,
+          "alert-success",
+        );
+        if (await cargarMenu()) actualizarProductos();
+      } catch (error) {
+        console.error("No se pudo agregar el platillo.", error);
+        const mensaje =
+          error instanceof TypeError
+            ? "No se pudo conectar con el servidor. Intenta de nuevo más tarde."
+            : error.message;
+        mostrarMensajeFormulario(mensajeFormulario, mensaje, "alert-danger");
+      } finally {
+        boton.disabled = false;
+      }
+    });
+  }
+
   busqueda.addEventListener("input", actualizarProductos);
   busqueda.addEventListener("change", () => registrarBusqueda(busqueda.value));
   mostrarHistorial();
   if (await cargarMenu()) actualizarProductos();
+}
+
+function mostrarMensajeFormulario(elemento, mensaje, clase) {
+  elemento.hidden = false;
+  elemento.className = `alert ${clase}`;
+  elemento.textContent = mensaje;
 }
 
 async function cargarMenu() {
