@@ -4,7 +4,7 @@ require __DIR__ . '/helpers.php';
 
 const ARCHIVO_NUEVOS = __DIR__ . '/data/platillos.json';
 const CATEGORIAS_VALIDAS = ['hamburguesas', 'combos', 'snacks', 'bebidas'];
-const PREFIJO_IMAGENES = '/public/assets/images/menu/';
+const PREFIJO_IMAGENES = '../assets/images/menu/';
 
 function obtenerPlatillos(): array
 {
