@@ -1,6 +1,10 @@
 import { inicializarNavegacion } from "../compartido/navegacion.js";
 import { guardarStorage, leerStorage } from "../compartido/storage.js";
-import { crearPlatillo, obtenerProductos } from "./productos.js";
+import {
+  crearPlatillo,
+  obtenerCategorias,
+  obtenerProductos,
+} from "./productos.js";
 import {
   actualizarFiltrosUI,
   actualizarProductosUI,
@@ -11,6 +15,13 @@ import {
 } from "./ui.js";
 
 inicializarNavegacion();
+
+const NOMBRES_CATEGORIAS = {
+  hamburguesas: "Hamburguesas",
+  combos: "Combos",
+  snacks: "Snacks / Acompañamientos",
+  bebidas: "Bebidas",
+};
 
 export async function inicializarMenu() {
   const filtros = Array.from(
@@ -89,11 +100,26 @@ export async function inicializarMenu() {
     formulario.addEventListener("submit", async (evento) => {
       evento.preventDefault();
       const boton = formulario.querySelector("button[type='submit']");
-      const datos = Object.fromEntries(new FormData(formulario));
-      datos.precio = Number(datos.precio);
+      const datosFormulario = Object.fromEntries(new FormData(formulario));
 
       boton.disabled = true;
       try {
+        const categorias = await obtenerCategorias();
+        const nombreCategoria = NOMBRES_CATEGORIAS[datosFormulario.categoria];
+        const categoria = categorias.find(
+          (item) => item.nombre === nombreCategoria,
+        );
+        if (!categoria) {
+          throw new Error("La categoría seleccionada no está disponible.");
+        }
+
+        const datos = {
+          id_categoria: Number(categoria.id_categoria),
+          nombre: datosFormulario.nombre,
+          descripcion: datosFormulario.descripcion,
+          precio: Number(datosFormulario.precio),
+          imagen_url: datosFormulario.imagen,
+        };
         const platillo = await crearPlatillo(datos);
         formulario.reset();
         mostrarMensajeFormulario(

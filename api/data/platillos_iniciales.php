@@ -6,7 +6,7 @@ return [
         'precio' => 99,
         'descripcion' => 'Carne a la parrilla, queso, aguacate y salsa de la casa.',
         'categoria' => 'hamburguesas',
-        'imagen' => '/public/assets/images/menu/clasico-con-papas-2.jpg',
+        'imagen' => '/assets/images/menu/clasico-con-papas-2.jpg',
     ],
     [
         'id' => 2,
@@ -14,7 +14,7 @@ return [
         'precio' => 115,
         'descripcion' => 'Doble carne, tocino crujiente, queso y salsa BBQ.',
         'categoria' => 'hamburguesas',
-        'imagen' => '/public/assets/images/menu/clasico-con-papas-2.jpg',
+        'imagen' => '/assets/images/menu/clasico-con-papas-2.jpg',
     ],
     [
         'id' => 3,
@@ -22,7 +22,7 @@ return [
         'precio' => 129,
         'descripcion' => 'Dos carnes, queso amarillo, cebolla y aderezo especial.',
         'categoria' => 'hamburguesas',
-        'imagen' => '/public/assets/images/menu/clasica-con-papas.jpg',
+        'imagen' => '/assets/images/menu/clasica-con-papas.jpg',
     ],
     [
         'id' => 4,
@@ -30,7 +30,7 @@ return [
         'precio' => 159,
         'descripcion' => 'Hamburguesa clásica, papas doradas y bebida.',
         'categoria' => 'combos',
-        'imagen' => '/public/assets/images/menu/clasica-con-papas.jpg',
+        'imagen' => '/assets/images/menu/clasica-con-papas.jpg',
     ],
     [
         'id' => 5,
@@ -38,7 +38,7 @@ return [
         'precio' => 399,
         'descripcion' => 'Cuatro hamburguesas, cuatro papas y cuatro bebidas.',
         'categoria' => 'combos',
-        'imagen' => '/public/assets/images/menu/combo-familiar.png',
+        'imagen' => '/assets/images/menu/combo-familiar.png',
     ],
     [
         'id' => 6,
@@ -46,7 +46,7 @@ return [
         'precio' => 219,
         'descripcion' => 'Dos hamburguesas, papas grandes y dos bebidas.',
         'categoria' => 'combos',
-        'imagen' => '/public/assets/images/menu/combo-familiar.png',
+        'imagen' => '/assets/images/menu/combo-familiar.png',
     ],
     [
         'id' => 7,
@@ -54,7 +54,7 @@ return [
         'precio' => 57,
         'descripcion' => 'Papas crujientes con queso fundido y un toque de especias.',
         'categoria' => 'snacks',
-        'imagen' => '/public/assets/images/menu/papas-480w.webp',
+        'imagen' => '/assets/images/menu/papas-480w.webp',
     ],
     [
         'id' => 8,
@@ -62,7 +62,7 @@ return [
         'precio' => 49,
         'descripcion' => 'Aros dorados y crujientes, recién preparados.',
         'categoria' => 'snacks',
-        'imagen' => '/public/assets/images/menu/papas-480w.webp',
+        'imagen' => '/assets/images/menu/papas-480w.webp',
     ],
     [
         'id' => 9,
@@ -70,7 +70,7 @@ return [
         'precio' => 79,
         'descripcion' => 'Pollo empanizado bañado en salsa BBQ o búfalo.',
         'categoria' => 'snacks',
-        'imagen' => '/public/assets/images/menu/papas-480w.webp',
+        'imagen' => '/assets/images/menu/papas-480w.webp',
     ],
     [
         'id' => 10,
@@ -78,7 +78,7 @@ return [
         'precio' => 32,
         'descripcion' => 'Limonada preparada al momento, servida bien fría.',
         'categoria' => 'bebidas',
-        'imagen' => '/public/assets/images/menu/limonada_fresca.jpg',
+        'imagen' => '/assets/images/menu/limonada_fresca.jpg',
     ],
     [
         'id' => 11,
@@ -86,7 +86,7 @@ return [
         'precio' => 28,
         'descripcion' => 'Agua fresca de jamaica, ligeramente endulzada.',
         'categoria' => 'bebidas',
-        'imagen' => '/public/assets/images/menu/bebida_jamaica.jpg',
+        'imagen' => '/assets/images/menu/bebida_jamaica.jpg',
     ],
     [
         'id' => 12,
@@ -94,6 +94,6 @@ return [
         'precio' => 55,
         'descripcion' => 'Malteada cremosa con sabor a elegir hecha con leche de femboys bien fría.',
         'categoria' => 'bebidas',
-        'imagen' => '/public/assets/images/menu/bebida.webp',
+        'imagen' => '/assets/images/menu/bebida.webp',
     ],
 ];

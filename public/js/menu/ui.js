@@ -22,7 +22,7 @@ function crearTarjeta(platillo) {
 
   const imagen = document.createElement("img");
   imagen.className = "producto__imagen card-img-top";
-  imagen.src = platillo.imagen;
+  imagen.src = platillo.imagen_url;
   imagen.alt = platillo.nombre;
   imagen.width = 320;
   imagen.height = 200;
