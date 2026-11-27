@@ -40,38 +40,39 @@
               configuración de ventas.
             </p>
           </div>
-          <button class="admin-menu__new" type="button">
+          <button id="nuevo-platillo" class="admin-menu__new" type="button">
             <span aria-hidden="true">＋</span>
             Nuevo platillo
           </button>
         </section>
+        <p id="aviso-menu" class="admin-menu__notice" role="status" aria-live="polite" hidden></p>
 
         <section class="admin-menu__metrics" aria-label="Resumen del catálogo">
           <article class="admin-menu__metric admin-menu__metric--dark">
             <span class="admin-menu__metric-icon" aria-hidden="true">▦</span>
             <div>
-              <strong>6</strong>
+              <strong id="metric-activos">0</strong>
               <small>Platillos activos</small>
             </div>
           </article>
           <article class="admin-menu__metric">
             <span class="admin-menu__metric-icon admin-menu__metric-icon--green" aria-hidden="true">✓</span>
             <div>
-              <strong>6</strong>
+              <strong id="metric-disponibles">0</strong>
               <small>Disponibles ahora</small>
             </div>
           </article>
           <article class="admin-menu__metric">
             <span class="admin-menu__metric-icon admin-menu__metric-icon--red" aria-hidden="true">●</span>
             <div>
-              <strong>2</strong>
+              <strong id="metric-agotados">0</strong>
               <small>Agotados</small>
             </div>
           </article>
           <article class="admin-menu__metric">
             <span class="admin-menu__metric-icon admin-menu__metric-icon--yellow" aria-hidden="true">★</span>
             <div>
-              <strong>5</strong>
+              <strong id="metric-destacados">0</strong>
               <small>Destacados en Home</small>
             </div>
           </article>
@@ -85,25 +86,21 @@
                 <circle cx="10.5" cy="10.5" r="6.5" />
                 <path d="m15.5 15.5 5 5" />
               </svg>
-              <input type="search" placeholder="Ej. Paella, Combo Clásico, Papas..." />
+              <input id="buscar-platillos" type="search" placeholder="Ej. Paella, Combo Clásico, Papas..." />
             </span>
           </label>
           <label>
             <span>Categoría</span>
-            <select>
-              <option>Todas las categorías</option>
-              <option>Hamburguesas</option>
-              <option>Combos</option>
-              <option>Snacks / Acompañamientos</option>
-              <option>Bebidas</option>
+            <select id="filtro-categoria">
+              <option value="">Todas las categorías</option>
             </select>
           </label>
           <label>
             <span>Disponibilidad</span>
-            <select>
-              <option>Todos los estados</option>
-              <option>Disponible</option>
-              <option>Agotado</option>
+            <select id="filtro-disponibilidad">
+              <option value="">Todos los estados</option>
+              <option value="1">Disponible</option>
+              <option value="0">Agotado</option>
             </select>
           </label>
         </section>
@@ -114,7 +111,7 @@
               <span aria-hidden="true">▣</span>
               Listado de platillos
             </h2>
-            <small>Mostrando 6 platillos activos</small>
+            <small id="conteo-platillos">Cargando platillos...</small>
           </header>
 
           <div class="admin-menu__table-wrap">
@@ -129,7 +126,7 @@
                   <th scope="col">ACCIONES</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="lista-platillos">
                 <tr>
                   <td>
                     <div class="admin-menu__dish">
@@ -212,6 +209,89 @@
             </table>
           </div>
         </section>
+
+        <dialog
+          id="dialogo-platillo"
+          class="admin-menu__dialog"
+          aria-labelledby="form-platillo-titulo"
+        >
+          <form id="form-platillo" class="admin-menu__form">
+            <header class="admin-menu__dialog-header">
+              <h2 id="form-platillo-titulo">Nuevo platillo</h2>
+              <button
+                id="cerrar-dialogo-platillo"
+                class="admin-menu__dialog-close"
+                type="button"
+                aria-label="Cerrar"
+              >
+                ×
+              </button>
+            </header>
+            <label>
+              Nombre
+              <input name="nombre" type="text" minlength="3" maxlength="80" required />
+            </label>
+            <div class="admin-menu__form-row">
+              <label>
+                Precio ($)
+                <input name="precio" type="number" min="0.01" step="0.01" required />
+              </label>
+              <label>
+                Categoría
+                <select name="id_categoria" required>
+                  <option value="">Selecciona una categoría</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Descripción
+              <textarea name="descripcion" minlength="10" maxlength="250" rows="3" required></textarea>
+            </label>
+            <label>
+              Imagen
+              <select name="imagen_url" required>
+                <option value="/assets/images/menu/clasico-con-papas-2.jpg">Hamburguesa con papas (1)</option>
+                <option value="/assets/images/menu/clasica-con-papas.jpg">Hamburguesa con papas (2)</option>
+                <option value="/assets/images/menu/combo-familiar.png">Combo</option>
+                <option value="/assets/images/menu/papas-480w.webp">Papas / Snacks</option>
+                <option value="/assets/images/menu/limonada_fresca.jpg">Limonada</option>
+                <option value="/assets/images/menu/bebida_jamaica.jpg">Agua de jamaica</option>
+                <option value="/assets/images/menu/bebida.webp">Malteada</option>
+              </select>
+            </label>
+            <div class="admin-menu__form-row admin-menu__form-row--flags">
+              <label class="admin-menu__checkbox">
+                <input name="disponible" type="checkbox" checked />
+                Disponible para pedidos
+              </label>
+              <label class="admin-menu__checkbox">
+                <input name="es_promocion" type="checkbox" />
+                Marcar como promoción
+              </label>
+              <label class="admin-menu__checkbox">
+                <input name="es_favorito" type="checkbox" />
+                Destacar en inicio
+              </label>
+            </div>
+            <label>
+              Orden de visualización
+              <input name="orden_visualizacion" type="number" min="0" step="1" value="0" required />
+            </label>
+            <p
+              id="form-platillo-mensaje"
+              class="admin-menu__form-message"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+            <footer class="admin-menu__form-actions">
+              <button id="cancelar-platillo" class="admin-menu__form-cancel" type="button">
+                Cancelar
+              </button>
+              <button class="admin-menu__new" type="submit">Guardar platillo</button>
+            </footer>
+          </form>
+        </dialog>
       </main>
 
       <footer class="admin-footer">
@@ -219,6 +299,7 @@
         <span>© 2026 Carlos JR. Todos los derechos reservados.</span>
       </footer>
     </div>
-    <script type="module" src="../js/admin/sidebar.js"></script>
+    <script type="module" src="../js/admin/sidebar/main.js"></script>
+    <script type="module" src="../js/admin/menu/main.js"></script>
   </body>
 </html>

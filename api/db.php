@@ -4,7 +4,12 @@ function conectar(): PDO
     static $pdo = null;
     if ($pdo !== null) return $pdo;
 
-    $config = require __DIR__ . '/config.php';
+    $archivoConfig = __DIR__ . '/config.php';
+    if (!is_file($archivoConfig)) {
+        throw new RuntimeException('No existe api/config.php; copia config.example.php y configura las credenciales.');
+    }
+
+    $config = require $archivoConfig;
     $dsn = "mysql:host={$config['host']};"
          . "dbname={$config['db']};charset=utf8mb4";
 

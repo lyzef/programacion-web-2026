@@ -114,6 +114,19 @@ function buscarPlatilloPorId(PDO $pdo, int $id): ?array
     return $fila ? formatearPlatillo($fila) : null;
 }
 
+$metodo = $_SERVER['REQUEST_METHOD'] ?? '';
+if (!in_array($metodo, ['GET', 'POST', 'PUT', 'DELETE'], true)) {
+    header('Allow: GET, POST, PUT, DELETE');
+    responder(['error' => 'Método HTTP no permitido'], 405);
+}
+
+try {
+    $pdo = conectar();
+} catch (Throwable $error) {
+    error_log('No se pudo conectar a la base de datos desde platillos.php: ' . $error->getMessage());
+    responder(['error' => 'No se pudo conectar con la base de datos. Revisa api/config.php.'], 500);
+}
+
 switch ($metodo) {
     // =========================================================================
     // READ (GET): Todos, filtrados (?buscar= / ?categoria=) o uno (?id=)

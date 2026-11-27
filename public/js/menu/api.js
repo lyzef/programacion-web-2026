@@ -28,18 +28,3 @@ export async function obtenerProductos() {
 
   return productos;
 }
-
-export async function crearPlatillo(datos) {
-  const respuesta = await fetch(URL_API, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(datos),
-  });
-
-  const cuerpo = await respuesta.json().catch(() => null);
-  if (!respuesta.ok) {
-    throw new Error(cuerpo?.error ?? `La solicitud falló: ${respuesta.status}`);
-  }
-
-  return cuerpo;
-}

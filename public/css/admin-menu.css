@@ -398,6 +398,152 @@
   padding: 0 5px;
 }
 
+.admin-menu__dialog {
+  width: min(560px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  border: 0;
+  border-radius: 12px;
+  padding: 0;
+  color: #343943;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.admin-menu__dialog::backdrop {
+  background: rgba(18, 19, 24, 0.62);
+}
+
+.admin-menu__form {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  font-size: 14px;
+}
+
+.admin-menu__dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-menu__dialog-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.admin-menu__dialog-close {
+  border: 0;
+  background: transparent;
+  color: #777d87;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.admin-menu__form label {
+  display: grid;
+  gap: 6px;
+  color: #555b66;
+  font-size: 13px;
+  font-weight: var(--peso-titulo);
+}
+
+.admin-menu__form input,
+.admin-menu__form select,
+.admin-menu__form textarea {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #dfe2e7;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px 10px;
+  color: #343943;
+  font: inherit;
+}
+
+.admin-menu__form textarea {
+  resize: vertical;
+}
+
+.admin-menu__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.admin-menu__form-message {
+  margin: 0;
+  border-radius: 6px;
+  background: #fde8ea;
+  color: #b4232a;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.admin-menu__form-row--flags {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.admin-menu__form .admin-menu__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 400;
+}
+
+.admin-menu__form .admin-menu__checkbox input {
+  width: 16px;
+  min-height: 16px;
+  flex: 0 0 16px;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--color-primario);
+}
+
+.admin-menu__form-message--success {
+  background: #e2f5e8;
+  color: #258b43;
+}
+
+.admin-menu__notice {
+  max-width: 1320px;
+  margin: 0 0 10px;
+  border-radius: 6px;
+  background: #e2f5e8;
+  color: #258b43;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.admin-menu__notice--error {
+  background: #fde8ea;
+  color: #b4232a;
+}
+
+.admin-menu__form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.admin-menu__form-actions .admin-menu__new,
+.admin-menu__form-cancel {
+  height: 36px;
+  margin: 0;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+.admin-menu__form-cancel {
+  border: 1px solid #d7dae0;
+  border-radius: 20px;
+  background: #fff;
+  color: #4d535e;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 @media (max-width: 700px) {
   .admin-menu__metrics,
   .admin-menu__filters {
@@ -410,5 +556,17 @@
 
   .admin-menu__table {
     min-width: 680px;
+  }
+
+  .admin-menu__form {
+    padding: 18px;
+  }
+
+  .admin-menu__form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-menu__form-row--flags {
+    grid-template-columns: 1fr;
   }
 }
