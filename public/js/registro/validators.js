@@ -2,12 +2,18 @@ export function validarNombre(valor) {
   const nombre = valor.trim();
   if (!nombre) return "Ingresa tu nombre completo.";
   if (nombre.length < 3) return "El nombre debe tener al menos 3 caracteres.";
+  if (nombre.length > 120) {
+    return "El nombre no puede exceder 120 caracteres.";
+  }
   return "";
 }
 
 export function validarCorreo(valor) {
   const correo = valor.trim();
   if (!correo) return "Ingresa tu correo electrónico.";
+  if (correo.length > 120) {
+    return "El correo electrónico no puede exceder 120 caracteres.";
+  }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
     return "Ingresa un correo electrónico válido.";
   }

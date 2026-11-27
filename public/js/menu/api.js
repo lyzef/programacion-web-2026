@@ -1,5 +1,7 @@
-const URL_API = "/api/platillos.php";
-const URL_CATEGORIAS = "/api/categorias.php";
+import { urlApi } from "../compartido/rutas.js";
+
+const URL_API = urlApi("platillos.php");
+const URL_CATEGORIAS = urlApi("categorias.php");
 
 export async function obtenerCategorias() {
   const respuesta = await fetch(URL_CATEGORIAS);

@@ -25,12 +25,6 @@ function validarCampos() {
   campos.confirmar_password.setCustomValidity(
     validarConfirmacion(campos.password.value, campos.confirmar_password.value),
   );
-  campos.terminos.setCustomValidity(
-    campos.terminos.checked ? "" : "Debes aceptar los términos y condiciones.",
-  );
-  campos.privacidad.setCustomValidity(
-    campos.privacidad.checked ? "" : "Debes aceptar la política de privacidad.",
-  );
 
   return formulario.checkValidity();
 }

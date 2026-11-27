@@ -1,5 +1,7 @@
-const URL_API = "/api/platillos.php";
-const URL_CATEGORIAS = "/api/categorias.php";
+import { urlApi } from "../../compartido/rutas.js";
+
+const URL_API = urlApi("platillos.php");
+const URL_CATEGORIAS = urlApi("categorias.php");
 
 async function solicitar(url, metodo = "GET", datos) {
   const opciones = { method: metodo };
@@ -61,12 +63,40 @@ function validarPlatillo(datos) {
   return datos;
 }
 
+function validarCategoria(datos) {
+  if (
+    !datos ||
+    typeof datos !== "object" ||
+    Array.isArray(datos) ||
+    typeof datos.nombre !== "string"
+  ) {
+    throw new Error("La API no devolvió una categoría válida.");
+  }
+  return datos;
+}
+
 export async function obtenerCategorias() {
-  return validarLista(await solicitar(URL_CATEGORIAS), "categorías");
+  const url = `${URL_CATEGORIAS}?todas=1`;
+  return validarLista(await solicitar(url), "categorías");
+}
+
+export async function crearCategoria(datos) {
+  return validarCategoria(await solicitar(URL_CATEGORIAS, "POST", datos));
+}
+
+export async function actualizarCategoria(id, datos) {
+  const url = `${URL_CATEGORIAS}?id=${encodeURIComponent(id)}`;
+  return validarCategoria(await solicitar(url, "PUT", datos));
+}
+
+export async function desactivarCategoria(id) {
+  const url = `${URL_CATEGORIAS}?id=${encodeURIComponent(id)}`;
+  return solicitar(url, "DELETE");
 }
 
 export async function obtenerProductos() {
-  return validarLista(await solicitar(URL_API), "el menú");
+  const url = `${URL_API}?incluir_categorias_inactivas=1`;
+  return validarLista(await solicitar(url), "el menú");
 }
 
 export async function crearPlatillo(datos) {

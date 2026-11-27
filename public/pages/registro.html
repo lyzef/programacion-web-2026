@@ -77,12 +77,13 @@
                     name="nombre"
                     autocomplete="name"
                     minlength="3"
+                    maxlength="120"
                     placeholder="Ej. Juan Pérez"
                     aria-describedby="nombre-hint nombre-error"
                     required
                   />
                   <div id="nombre-hint" class="form-text">
-                    Mínimo 3 caracteres.
+                    Entre 3 y 120 caracteres.
                   </div>
                   <span
                     id="nombre-error"
@@ -102,6 +103,7 @@
                     id="correo"
                     name="correo"
                     autocomplete="email"
+                    maxlength="120"
                     placeholder="tu@correo.com"
                     aria-describedby="correo-error"
                     required
@@ -125,6 +127,7 @@
                     name="telefono"
                     autocomplete="tel"
                     inputmode="numeric"
+                    maxlength="10"
                     pattern="[0-9]{10}"
                     placeholder="Ej. 5512345678"
                     aria-describedby="telefono-hint telefono-error"
@@ -188,53 +191,6 @@
                     data-error-para="confirmar_password"
                     aria-live="polite"
                   ></span>
-                </div>
-
-                <div class="col-12">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="terminos"
-                      name="terminos"
-                      aria-describedby="terminos-error"
-                      required
-                    />
-                    <label class="form-check-label" for="terminos">
-                      Acepto los
-                      <a href="terminos.html"
-                        >Términos y Condiciones del servicio</a
-                      >.
-                    </label>
-                    <span
-                        id="terminos-error"
-                        class="registro-formulario__error"
-                        data-error-para="terminos"
-                        aria-live="polite"
-                    ></span>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="privacidad"
-                      name="privacidad"
-                      aria-describedby="privacidad-error"
-                      required
-                    />
-                    <label class="form-check-label" for="privacidad">
-                      Acepto la
-                      <a href="privacidad.html"
-                        >Política de Privacidad de datos</a
-                      >.
-                    </label>
-                    <span
-                        id="privacidad-error"
-                        class="registro-formulario__error"
-                        data-error-para="privacidad"
-                        aria-live="polite"
-                    ></span>
-                  </div>
                 </div>
 
                 <div

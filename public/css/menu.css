@@ -263,6 +263,39 @@
   outline-offset: 2px;
 }
 
+.producto__estado {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  z-index: 1;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-pildora);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.producto__estado--agotado {
+  background-color: #dc2626;
+  color: var(--color-blanco-puro);
+}
+
+.producto--agotado .producto__tarjeta {
+  opacity: 0.78;
+}
+
+.producto--agotado .producto__imagen {
+  filter: grayscale(65%);
+}
+
+.producto__pedir--agotado,
+.producto__pedir--agotado:hover {
+  border: 1px solid var(--color-borde-oscuro);
+  background-color: var(--color-bg-oscuro);
+  color: var(--color-texto-secundario-oscuro);
+  cursor: not-allowed;
+  translate: none;
+}
+
 .catalogo__lupa {
   width: 1.2rem;
   height: 1.2rem;

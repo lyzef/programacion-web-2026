@@ -1,11 +1,12 @@
 import { inicializarNavegacion } from "../compartido/navegacion.js";
 import { guardarStorage, leerStorage } from "../compartido/storage.js";
-import { obtenerProductos } from "./api.js";
+import { obtenerCategorias, obtenerProductos } from "./api.js";
 import {
   actualizarFiltrosUI,
   actualizarProductosUI,
   mostrarEstadoMenu,
   ocultarEstadoMenu,
+  renderizarFiltrosCategorias,
   renderizarHistorialUI,
   renderizarProductos,
 } from "./ui.js";
@@ -13,14 +14,20 @@ import {
 inicializarNavegacion();
 
 export async function inicializarMenu() {
-  const filtros = Array.from(
-    document.querySelectorAll(".catalogo__filtro[data-filtro]"),
-  );
+  const contenedorFiltros = document.getElementById("filtros-menu");
   const busqueda = document.getElementById("busqueda-menu");
   const mensajeVacio = document.getElementById("menu-sin-resultados");
   const contenedor = document.getElementById("productos-menu");
   const historial = document.getElementById("historial-busqueda");
-  if (!busqueda || !mensajeVacio || !contenedor || !historial) return;
+  if (
+    !contenedorFiltros ||
+    !busqueda ||
+    !mensajeVacio ||
+    !contenedor ||
+    !historial
+  ) {
+    return;
+  }
 
   let categoriaActiva = "todas";
 
@@ -75,21 +82,29 @@ export async function inicializarMenu() {
     mostrarHistorial();
   };
 
-  filtros.forEach((filtro) => {
-    filtro.addEventListener("click", () => {
-      categoriaActiva = filtro.dataset.filtro;
-      actualizarFiltrosUI(filtros, filtro);
-      actualizarProductos();
-    });
+  contenedorFiltros.addEventListener("click", (evento) => {
+    if (!(evento.target instanceof Element)) return;
+    const filtro = evento.target.closest(".catalogo__filtro[data-filtro]");
+    if (!filtro) return;
+
+    categoriaActiva = filtro.dataset.filtro ?? "todas";
+    const filtros = Array.from(
+      contenedorFiltros.querySelectorAll(".catalogo__filtro[data-filtro]"),
+    );
+    actualizarFiltrosUI(filtros, filtro);
+    actualizarProductos();
   });
 
   busqueda.addEventListener("input", actualizarProductos);
   busqueda.addEventListener("change", () => registrarBusqueda(busqueda.value));
   mostrarHistorial();
-  if (await cargarMenu()) actualizarProductos();
+
+  if (await cargarMenu(contenedorFiltros, categoriaActiva)) {
+    actualizarProductos();
+  }
 }
 
-async function cargarMenu() {
+async function cargarMenu(contenedorFiltros, categoriaActiva) {
   const contenedor = document.getElementById("productos-menu");
   const estado = document.getElementById("menu-estado");
   if (!contenedor || !estado) return false;
@@ -106,8 +121,12 @@ async function cargarMenu() {
   mostrarEstadoMenu(estado, "Cargando el menú...", "cargando");
 
   try {
-    const productos = await obtenerProductos();
+    const [categorias, productos] = await Promise.all([
+      obtenerCategorias(),
+      obtenerProductos(),
+    ]);
     await esperarCargaMinima();
+    renderizarFiltrosCategorias(contenedorFiltros, categorias, categoriaActiva);
     renderizarProductos(contenedor, productos);
     mostrarEstadoMenu(estado, "El menú se cargó correctamente.", "exito");
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -126,4 +145,5 @@ async function cargarMenu() {
     contenedor.setAttribute("aria-busy", "false");
   }
 }
+
 inicializarMenu();

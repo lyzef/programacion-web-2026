@@ -455,18 +455,18 @@ INSERT INTO categorias (nombre, orden_visualizacion) VALUES
 INSERT INTO platillos (
     id_platillo, id_categoria, nombre, descripcion, precio, imagen_url, orden_visualizacion
 ) VALUES
-    (1, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Paceña', 'Carne a la parrilla, queso, aguacate y salsa de la casa.', 99.00, '/assets/images/menu/clasico-con-papas-2.jpg', 1),
-    (2, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Psicologa', 'Doble carne, tocino crujiente, queso y salsa BBQ.', 115.00, '/assets/images/menu/clasico-con-papas-2.jpg', 2),
-    (3, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Doblecarne', 'Dos carnes, queso amarillo, cebolla y aderezo especial.', 129.00, '/assets/images/menu/clasica-con-papas.jpg', 3),
-    (4, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo clasico', 'Hamburguesa clásica, papas doradas y bebida.', 159.00, '/assets/images/menu/clasica-con-papas.jpg', 4),
-    (5, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo Familiar', 'Cuatro hamburguesas, cuatro papas y cuatro bebidas.', 399.00, '/assets/images/menu/combo-familiar.png', 5),
-    (6, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo Pareja', 'Dos hamburguesas, papas grandes y dos bebidas.', 219.00, '/assets/images/menu/combo-familiar.png', 6),
-    (7, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Papas con Queso', 'Papas crujientes con queso fundido y un toque de especias.', 57.00, '/assets/images/menu/papas-480w.webp', 7),
-    (8, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Aros de Cebolla', 'Aros dorados y crujientes, recién preparados.', 49.00, '/assets/images/menu/papas-480w.webp', 8),
-    (9, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Boneless de la Casa', 'Pollo empanizado bañado en salsa BBQ o búfalo.', 79.00, '/assets/images/menu/papas-480w.webp', 9),
-    (10, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Limonada Fresca', 'Limonada preparada al momento, servida bien fría.', 32.00, '/assets/images/menu/limonada_fresca.jpg', 10),
-    (11, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Agua de Jamaica', 'Agua fresca de jamaica, ligeramente endulzada.', 28.00, '/assets/images/menu/bebida_jamaica.jpg', 11),
-    (12, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Carlos Milkshake', 'Malteada cremosa con sabor a elegir hecha con leche de femboys bien fría.', 55.00, '/assets/images/menu/bebida.webp', 12);
+    (1, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Paceña', 'Carne a la parrilla, queso, aguacate y salsa de la casa.', 99.00, '../assets/images/menu/clasico-con-papas-2.jpg', 1),
+    (2, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Psicologa', 'Doble carne, tocino crujiente, queso y salsa BBQ.', 115.00, '../assets/images/menu/clasico-con-papas-2.jpg', 2),
+    (3, (SELECT id_categoria FROM categorias WHERE nombre = 'Hamburguesas'), 'Doblecarne', 'Dos carnes, queso amarillo, cebolla y aderezo especial.', 129.00, '../assets/images/menu/clasica-con-papas.jpg', 3),
+    (4, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo clasico', 'Hamburguesa clásica, papas doradas y bebida.', 159.00, '../assets/images/menu/clasica-con-papas.jpg', 4),
+    (5, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo Familiar', 'Cuatro hamburguesas, cuatro papas y cuatro bebidas.', 399.00, '../assets/images/menu/combo-familiar.png', 5),
+    (6, (SELECT id_categoria FROM categorias WHERE nombre = 'Combos'), 'Combo Pareja', 'Dos hamburguesas, papas grandes y dos bebidas.', 219.00, '../assets/images/menu/combo-familiar.png', 6),
+    (7, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Papas con Queso', 'Papas crujientes con queso fundido y un toque de especias.', 57.00, '../assets/images/menu/papas-480w.webp', 7),
+    (8, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Aros de Cebolla', 'Aros dorados y crujientes, recién preparados.', 49.00, '../assets/images/menu/papas-480w.webp', 8),
+    (9, (SELECT id_categoria FROM categorias WHERE nombre = 'Snacks / Acompañamientos'), 'Boneless de la Casa', 'Pollo empanizado bañado en salsa BBQ o búfalo.', 79.00, '../assets/images/menu/papas-480w.webp', 9),
+    (10, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Limonada Fresca', 'Limonada preparada al momento, servida bien fría.', 32.00, '../assets/images/menu/limonada_fresca.jpg', 10),
+    (11, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Agua de Jamaica', 'Agua fresca de jamaica, ligeramente endulzada.', 28.00, '../assets/images/menu/bebida_jamaica.jpg', 11),
+    (12, (SELECT id_categoria FROM categorias WHERE nombre = 'Bebidas'), 'Carlos Milkshake', 'Malteada cremosa con sabor a elegir, servida bien fría.', 55.00, '../assets/images/menu/bebida.webp', 12);
 INSERT INTO horarios_atencion (dia_semana, hora_apertura, hora_cierre, activo) VALUES
     ('lunes',     '12:00:00', '22:00:00', TRUE),
     ('martes',    '12:00:00', '22:00:00', TRUE),

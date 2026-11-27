@@ -1,3 +1,5 @@
+import { resolverRutaImagen } from "../../compartido/rutas.js";
+
 function normalizar(texto) {
   return texto
     .normalize("NFD")
@@ -33,12 +35,17 @@ export function cargarOpcionesCategoria(
   agregarOpcion(categoriaFormulario, "", "Selecciona una categoría");
 
   categorias.forEach((categoria) => {
-    agregarOpcion(filtroCategoria, categoria.id_categoria, categoria.nombre);
-    agregarOpcion(
-      categoriaFormulario,
-      categoria.id_categoria,
-      categoria.nombre,
-    );
+    const etiquetaFiltro = categoria.activa
+      ? categoria.nombre
+      : `${categoria.nombre} (Inactiva)`;
+    agregarOpcion(filtroCategoria, categoria.id_categoria, etiquetaFiltro);
+    if (categoria.activa) {
+      agregarOpcion(
+        categoriaFormulario,
+        categoria.id_categoria,
+        categoria.nombre,
+      );
+    }
   });
 
   filtroCategoria.value = categoriaSeleccionada;
@@ -63,7 +70,7 @@ function crearCeldaPlatillo(platillo) {
   presentacion.className = "admin-menu__dish";
 
   const imagen = document.createElement("img");
-  imagen.src = platillo.imagen_url;
+  imagen.src = resolverRutaImagen(platillo.imagen_url);
   imagen.alt = "";
   imagen.loading = "lazy";
 
@@ -98,7 +105,10 @@ function crearFila(platillo) {
   const fila = document.createElement("tr");
   const categoria = document.createElement("span");
   categoria.className = "category";
-  categoria.textContent = platillo.categoria;
+  categoria.textContent =
+    platillo.categoria_activa === false
+      ? `${platillo.categoria} (Inactiva)`
+      : platillo.categoria;
 
   const celdaCategoria = document.createElement("td");
   celdaCategoria.append(categoria);
@@ -264,18 +274,19 @@ export function prepararEdicion(
   );
 
   const selectorImagen = campos.namedItem("imagen_url");
+  const imagenNormalizada = resolverRutaImagen(platillo.imagen_url);
   if (
     !Array.from(selectorImagen.options).some(
-      (opcion) => opcion.value === platillo.imagen_url,
+      (opcion) => opcion.value === imagenNormalizada,
     )
   ) {
     const opcionActual = document.createElement("option");
-    opcionActual.value = platillo.imagen_url;
+    opcionActual.value = imagenNormalizada;
     opcionActual.textContent = "Imagen actual";
     opcionActual.dataset.imagenActual = "true";
     selectorImagen.append(opcionActual);
   }
-  selectorImagen.value = platillo.imagen_url;
+  selectorImagen.value = imagenNormalizada;
   dialogo.showModal();
   campos.namedItem("nombre").focus();
 }
@@ -294,5 +305,136 @@ export function datosDelFormulario(formulario) {
     orden_visualizacion: Number(
       campos.namedItem("orden_visualizacion").value,
     ),
+  };
+}
+
+function crearFilaCategoria(categoria) {
+  const fila = document.createElement("tr");
+
+  const orden = document.createElement("strong");
+  orden.textContent = String(categoria.orden_visualizacion);
+  const celdaOrden = document.createElement("td");
+  celdaOrden.append(orden);
+
+  const nombre = document.createElement("strong");
+  nombre.textContent = categoria.nombre;
+  const celdaNombre = document.createElement("td");
+  celdaNombre.append(nombre);
+
+  const estado = document.createElement("span");
+  estado.className = `availability ${
+    categoria.activa ? "availability--on" : "availability--off"
+  }`;
+  const punto = document.createElement("i");
+  punto.setAttribute("aria-hidden", "true");
+  estado.append(
+    punto,
+    document.createTextNode(categoria.activa ? "Activa" : "Inactiva"),
+  );
+  const celdaEstado = document.createElement("td");
+  celdaEstado.append(estado);
+
+  const editar = document.createElement("button");
+  editar.type = "button";
+  editar.className = "action action--edit";
+  editar.dataset.action = "edit-category";
+  editar.dataset.id = String(categoria.id_categoria);
+  editar.textContent = "✎ Editar";
+
+  const alternarEstado = document.createElement("button");
+  alternarEstado.type = "button";
+  alternarEstado.className = categoria.activa
+    ? "action action--delete"
+    : "action action--activate";
+  alternarEstado.dataset.action = categoria.activa
+    ? "deactivate-category"
+    : "activate-category";
+  alternarEstado.dataset.id = String(categoria.id_categoria);
+  alternarEstado.textContent = categoria.activa ? "× Desactivar" : "✓ Activar";
+
+  const acciones = document.createElement("div");
+  acciones.className = "actions";
+  acciones.append(editar, alternarEstado);
+  const celdaAcciones = document.createElement("td");
+  celdaAcciones.append(acciones);
+
+  fila.append(celdaOrden, celdaNombre, celdaEstado, celdaAcciones);
+  return fila;
+}
+
+export function renderizarCategorias(lista, conteo, categorias) {
+  lista.replaceChildren();
+  if (categorias.length === 0) {
+    const fila = document.createElement("tr");
+    const vacia = celda("No hay categorías registradas.");
+    vacia.colSpan = 4;
+    fila.append(vacia);
+    lista.append(fila);
+  } else {
+    lista.append(...categorias.map(crearFilaCategoria));
+  }
+
+  const activas = categorias.filter((categoria) => categoria.activa).length;
+  conteo.textContent = `${activas} activas de ${categorias.length} categorías`;
+}
+
+export function prepararNuevaCategoria(
+  formulario,
+  mensajeFormulario,
+  tituloFormulario,
+  categorias,
+) {
+  formulario.reset();
+  formulario.elements.namedItem("activa").checked = true;
+  formulario.elements.namedItem("orden_visualizacion").value = String(
+    categorias.reduce(
+      (mayor, categoria) =>
+        Math.max(mayor, categoria.orden_visualizacion || 0),
+      0,
+    ) + 1,
+  );
+  mensajeFormulario.hidden = true;
+  tituloFormulario.textContent = "Nueva categoría";
+  formulario.querySelector('button[type="submit"]').textContent =
+    "Guardar categoría";
+}
+
+export function prepararEdicionCategoria(
+  dialogo,
+  formulario,
+  mensajeFormulario,
+  tituloFormulario,
+  categorias,
+  categoria,
+) {
+  prepararNuevaCategoria(
+    formulario,
+    mensajeFormulario,
+    tituloFormulario,
+    categorias,
+  );
+  tituloFormulario.textContent = "Editar categoría";
+  formulario.querySelector('button[type="submit"]').textContent =
+    "Guardar cambios";
+
+  const campos = formulario.elements;
+  campos.namedItem("nombre").value = categoria.nombre;
+  campos.namedItem("orden_visualizacion").value = String(
+    categoria.orden_visualizacion,
+  );
+  campos.namedItem("activa").checked = Boolean(categoria.activa);
+
+  dialogo.showModal();
+  campos.namedItem("nombre").focus();
+}
+
+export function datosDeCategoria(formulario) {
+  const campos = formulario.elements;
+  return {
+    nombre: campos.namedItem("nombre").value.trim(),
+    orden_visualizacion: Number(
+      campos.namedItem("orden_visualizacion").value,
+    ),
+    activa: campos.namedItem("activa").checked,
   };
 }
