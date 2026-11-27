@@ -10,6 +10,7 @@ Sitio web hecho para un supuesto restaurante de comida rapida.
 - `public/assets/images/`: imágenes del sitio.
 - `public/css/`: hojas de estilo.
 - `public/fonts/`: fuentes locales.
+- `public/vendor/`: dependencias JavaScript servidas directamente por el sitio.
 - `public/js/`: scripts del sitio.
 - `public/js/compartido/`: módulos reutilizables.
 - `public/js/inicio/main.js`: punto de entrada de la página principal.
