@@ -1,0 +1,98 @@
+[
+  {
+    "nombre": "Paceña",
+    "precio": 99,
+    "descripcion": "Carne a la parrilla, queso, aguacate y salsa de la casa.",
+    "categoria": "hamburguesas",
+    "imagen": "../assets/images/menu/clasico-con-papas-2.jpg",
+    "etiqueta": "Nueva"
+  },
+  {
+    "nombre": "Psicologa",
+    "precio": 115,
+    "descripcion": "Doble carne, tocino crujiente, queso y salsa BBQ.",
+    "categoria": "hamburguesas",
+    "imagen": "../assets/images/menu/clasico-con-papas-2.jpg",
+    "etiqueta": "Popular"
+  },
+  {
+    "nombre": "Doblecarne",
+    "precio": 129,
+    "descripcion": "Dos carnes, queso amarillo, cebolla y aderezo especial.",
+    "categoria": "hamburguesas",
+    "imagen": "../assets/images/menu/clasica-con-papas.jpg",
+    "etiqueta": "Favorita"
+  },
+  {
+    "nombre": "Combo clasico",
+    "precio": 159,
+    "descripcion": "Hamburguesa clásica, papas doradas y bebida.",
+    "categoria": "combos",
+    "imagen": "../assets/images/menu/clasica-con-papas.jpg",
+    "etiqueta": "Promoción"
+  },
+  {
+    "nombre": "Combo Familiar",
+    "precio": 399,
+    "descripcion": "Cuatro hamburguesas, cuatro papas y cuatro bebidas.",
+    "categoria": "combos",
+    "imagen": "../assets/images/menu/combo-familiar.png",
+    "etiqueta": "Ahorra $69"
+  },
+  {
+    "nombre": "Combo Pareja",
+    "precio": 219,
+    "descripcion": "Dos hamburguesas, papas grandes y dos bebidas.",
+    "categoria": "combos",
+    "imagen": "../assets/images/menu/combo-familiar.png",
+    "etiqueta": "Para compartir"
+  },
+  {
+    "nombre": "Papas con Queso",
+    "precio": 57,
+    "descripcion": "Papas crujientes con queso fundido y un toque de especias.",
+    "categoria": "snacks",
+    "imagen": "../assets/images/menu/papas-480w.webp",
+    "etiqueta": "Acompañamiento"
+  },
+  {
+    "nombre": "Aros de Cebolla",
+    "precio": 49,
+    "descripcion": "Aros dorados y crujientes, recién preparados.",
+    "categoria": "snacks",
+    "imagen": "../assets/images/menu/papas-480w.webp",
+    "etiqueta": "Para compartir"
+  },
+  {
+    "nombre": "Boneless de la Casa",
+    "precio": 79,
+    "descripcion": "Pollo empanizado bañado en salsa BBQ o búfalo.",
+    "categoria": "snacks",
+    "imagen": "../assets/images/menu/papas-480w.webp",
+    "etiqueta": "Popular"
+  },
+  {
+    "nombre": "Limonada Fresca",
+    "precio": 32,
+    "descripcion": "Limonada preparada al momento, servida bien fría.",
+    "categoria": "bebidas",
+    "imagen": "../assets/images/menu/limonada_fresca.jpg",
+    "etiqueta": "Natural"
+  },
+  {
+    "nombre": "Agua de Jamaica",
+    "precio": 28,
+    "descripcion": "Agua fresca de jamaica, ligeramente endulzada.",
+    "categoria": "bebidas",
+    "imagen": "../assets/images/menu/bebida_jamaica.jpg",
+    "etiqueta": "Favorita"
+  },
+  {
+    "nombre": "Carlos Milkshake",
+    "precio": 55,
+    "descripcion": "Malteada cremosa con sabor a elegir hecha con leche de femboys bien fría.",
+    "categoria": "bebidas",
+    "imagen": "../assets/images/menu/bebida.webp",
+    "etiqueta": "Postre"
+  }
+]
