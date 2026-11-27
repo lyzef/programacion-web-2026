@@ -3,8 +3,9 @@
 require_once __DIR__ . '/helpers.php';
 require_once __DIR__ . '/db.php';
 
-$pdo = conectar();
-$metodo = $_SERVER['REQUEST_METHOD'];
+const ARCHIVO_NUEVOS = __DIR__ . '/data/platillos.json';
+const CATEGORIAS_VALIDAS = ['hamburguesas', 'combos', 'snacks', 'bebidas'];
+const PREFIJO_IMAGENES = '../assets/images/menu/';
 
 /**
  * Normaliza los tipos de datos devueltos por MySQL para el JSON del frontend.
